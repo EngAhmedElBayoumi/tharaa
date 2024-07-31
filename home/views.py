@@ -8,9 +8,11 @@ import json
 
 def home(request):
     # get Customers_num 
-    customer_num = Customers_num.objects.first().customer_num
+    customer_num = Customers_num.objects.first()
     if not customer_num:
         customer_num = 1000
+    else:
+        customer_num = customer_num.customer_num
     customer_num += 1
     Customers_num.objects.update(customer_num=customer_num)
     
