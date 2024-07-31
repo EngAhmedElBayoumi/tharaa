@@ -240,7 +240,7 @@
                       <select class="inputtext" name="broker_company" id="broker_company_select">
                           <option vlaue="" selected>{% trans 'select option' %}</option>
                           {% for broker in thraa %}
-                          <option vlaue="{{broker.broker_company}}" selected>{{broker.broker_company}}</option>
+                          <option vlaue="{{broker.broker_company}}">{{broker.broker_company}}</option>
                           {% endfor %}
                       </select>
                   </div>
@@ -712,10 +712,7 @@
           console.log('select', selectedValue);
           $broker_company_input.val(selectedValue);
       });
-  
-  
-  
-  
+
       var $dev_sales_select = $("#dev_sales_select");
       var $dev_sales_input = $("#dev_sales_input");
   
