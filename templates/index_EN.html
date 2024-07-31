@@ -104,7 +104,7 @@
         <div class="language-switcher">
             <form method="post" action="{% url 'set_language' %}">
                 {% csrf_token %}
-                <select class="select2" name="language" onchange="this.form.submit()">
+                <select class="" name="language" onchange="this.form.submit()">
                     {% for lang_code, lang_name in LANGUAGES %}
                         <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
                             {{ lang_name }}
