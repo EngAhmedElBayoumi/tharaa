@@ -1,0 +1,473 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta accesskey="Shopping, Retail, Food Delivery, Cost Reductions, Wholesaler, activity tracker, and profits- e-Payment- Financial Solutions" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/boxicons.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/odometer.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/StyleForm.css' %}" />
+    {% if LANGUAGE_CODE == 'en' %}
+    <link rel="stylesheet" href="{% static 'assets/css/StyleForm_en.css' %}" />
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+    <title>Tharaa Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+  </head>
+
+  <body>
+    <div class="fromTLD">
+      <div class="FormPage">
+        <div class="logo">
+          <img src="{% static 'assets/img/Logo.png' %}" />
+        </div>
+        <div class="FormContent">
+          <div class="MainTitle">
+            <h2><span>استمارة ابداء رغبة شراء</span><img src="{% static 'assets/img/glee.png' %}" /></h2>
+            <div class="row" style="justify-content: center">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="formgroup">
+                  <label>التاريخ:</label>
+                  <input type="text" class="inputtext" />
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="formgroup">
+                  <label>
+                    رقم العميل:
+                </label>
+                  <input type="text" class="inputtext" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle">
+                <h2>
+                    بينات العميل
+                </h2>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>الإسم :</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>تاريخ الميلاد :</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>الرقم القومى / جواز السفر :</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>التليفون:</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>رقم المحمول:</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>المهنة:</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>العنوان:</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>البريد الإلكتروني::</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle mb-2">
+                <h2>مصدر العميل</h2>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-3">
+              <div class="row" style="margin: 0 -15px; justify-content: center">
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">مباشر</span>
+                      <input type="radio" name="clientSource" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">غير مباشر</span>
+                      <input type="radio" name="clientSource" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">شخصى</span>
+                      <input type="radio" name="clientSource" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>شركة التسويق العقارى :</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>مسؤل مبيعات المطور :</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>مشؤل مبيعات شركة التسويق العقارى :</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>مدير مبيعات المطور :</label>
+                    <input type="text" class="inputtext" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="UnitesGroup">
+                <div class="ItemssNewUints">
+                  <div class="UnitesItem">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sectitle mb-2">
+                          <h2>نوع الوحدة (<span>15255</span>)</h2>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 mb-3">
+                        <div class="row" style="margin: 0 -15px; justify-content: center">
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">ستوديو</span>
+                                <input type="radio" name="Unit_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">1 غرفة</span>
+                                <input type="radio" name="Unit_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">2 غرفة</span>
+                                <input type="radio" name="Unit_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">3 غرفة</span>
+                                <input type="radio" name="Unit_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">دوبلكس</span>
+                                <input type="radio" name="Unit_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">توين هوس</span>
+                                <input type="radio" name="Unit_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sectitle mb-2">
+                          <h2>الدور</h2>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 mb-3">
+                        <div class="row" style="margin: 0 -15px; justify-content: center">
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">رضى</span>
+                                <input type="radio" checked="checked" name="roof_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">متكرر</span>
+                                <input type="radio" checked="checked" name="roof_0" />
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="AddNeUnit">
+                  <button class="addNewUnitess" type="button">اضافة وحدة جديدة</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle">
+                <h2>طريقة الدفع</h2>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-3">
+              <div class="row" style="margin: 0 -15px; justify-content: center">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup" style="width: 250px">
+                    <label>القيمة</label>
+                    <input type="number" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">تحويل بنكى</span>
+                      <input type="radio" checked="checked" name="payment" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">شيكات</span>
+                      <input type="radio" checked="checked" name="payment" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">كاش</span>
+                      <input type="radio" checked="checked" name="payment" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle">
+                <h2>الشروط</h2>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="Shoroot">
+                <p>
+                    1- يلتزم العميل بالحضور الى مقر الشركة خلال 3 ايام من تاريخ اطلاق المشروع لتوقيع على العقد واستلامة بعد التعاقد طبقا للوائح الشركة وسداد باقى الثمن
+                </p>
+                <p>
+                    2- يسقط هذا الحجز فى حالة عدم الوفاء بالمبالغ المستحقه خلال المده المحددة بالبند السابق دون الحاجة الى تنبية او انذار او حكم قضائى ويعتبر هذا الحجز كأن لم يكن ويحق له استرداد دفعة الحجز المحفوظة.
+                </p>
+                <p>
+                    3- العميل مسؤل عن صحة البيانات الخاصة الواردة والمحررة بمعرفته
+
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-12 mt-5">
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>ادارة التشغيل</label>
+                    <input type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>ادارة المالية</label>
+                    <input type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>ادارة المبيعات</label>
+                    <input type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>العميل</label>
+                    <input type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <button type="submit" class="SendOrderer">ارسال الطلب</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" id=CovertPDFAndDowenload class="SendOrderer DowenloadPDFF">تحميل بصيغة pdf</button>
+
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.meanmenu.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/odometer.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.appear.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/contact-form-script.js' %}"></script>
+
+    <script src="{% static 'assets/js/wows.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    
+    
+    <script src="{% static 'assets/js/SmoothScroll.min.js' %}"></script>
+                <script src="{% static 'assets/js/wow.min.js' %}"></script>
+            <script>new WOW().init();</script>
+    
+<script>
+$(document).ready(function(){
+    $(".addNewUnitess").click(function(){
+        var newItem = $(".UnitesItem").first().clone();
+        var newIndex = $(".UnitesItem").length; 
+        newItem.find('input[type="radio"]').each(function() {
+            var name = $(this).attr('name');
+            var newName = name.split('_')[0] + '_' + newIndex;
+            $(this).attr('name', newName); 
+        });
+        $(".ItemssNewUints").append(newItem);
+    });
+});
+</script>
+    <script>
+    document.getElementById('CovertPDFAndDowenload').addEventListener('click', function() {
+        html2canvas(document.querySelector('.fromTLD')).then(canvas => {
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF('p', 'pt', 'a4');
+            var imgWidth = 210; // A4 width in mm
+            var pageHeight = 295; // A4 height in mm
+            var imgHeight = canvas.height * imgWidth / canvas.width;
+            var heightLeft = imgHeight;
+            var position = 0;
+            
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+                position -= pageHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+            pdf.save('form.pdf');
+        });
+    });
+</script>
+
+
+
+  </body>
+</html>
