@@ -120,7 +120,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="formgroup">
                   <label>{% trans 'Customer Num:' %}</label>
-                  <input type="text" name="customer_num" class="inputtext" value="{{customer_num}}" disabled />
+                  <input type="text" name="customer_num"  id="customer_num" class="inputtext" value="{{sympol}}{{customer_num}}" disabled />
                 </div>
               </div>
             </div>
@@ -271,6 +271,12 @@
                     <input type="text" name="broker_sales" class="inputtext" />
                   </div>
                 </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Broker id :' %}</label>
+                    <input type="text" name="broker_id" class="inputtext" />
+                  </div>
+                </div>
                 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
@@ -299,7 +305,7 @@
                     <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="sectitle mb-2">
-                          <h2>{% trans 'Type Of Unit' %} (<span id="number_of_units">15255</span>)</h2>
+                          <h2>{% trans 'Type Of Unit' %} ({{unit_sympol}}<span id="number_of_units">{{unit_num}}</span>)</h2>
                           <input type="text" name="number_of_units" id="number_of_units_input" class="inputtext" value="15255" style="display:none" />
                         </div>
                       </div>
@@ -562,6 +568,9 @@
               
                       $('#sendForm input').each(function() {
                           var type = $(this).attr('type');
+                          // check if id of the input is customer_num remove from value sympol and keep only number
+                         
+
                           var value = $(this).val();
                           var isReadonly = $(this).attr('readonly');
               
