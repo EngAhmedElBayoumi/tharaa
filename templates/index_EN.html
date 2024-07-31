@@ -678,9 +678,10 @@
                                     fonts: ['Amiri']
                                 }
                             };
-                            html2pdf().set(opt).from(element).save();
-                            element.style.width = '60%';
-                            addNewUnitess.style.display = 'block';
+                            html2pdf().set(opt).from(element).save().then(function() {
+                              element.style.width = '60%';
+                              addNewUnitess.style.display = 'block';
+                          });
                         },
                           error: function(xhr, status, error) {
                               console.log(xhr.responseText);
