@@ -16,8 +16,8 @@
 
     <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}" />
 
-    <link rel="stylesheet" href="{% static 'assets/css/nice-select.min.css' %}" />
-
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/nice-select.min.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'assets/select2/css/select2.min.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" />
 
     <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}" />
@@ -60,7 +60,7 @@
             margin-right: 5px;
         }
         .fromTLD{
-          width: 200mm;
+          width: 60%;
           margin: auto;
         }
         .fromTLD .FormPage{
@@ -104,7 +104,7 @@
         <div class="language-switcher">
             <form method="post" action="{% url 'set_language' %}">
                 {% csrf_token %}
-                <select name="language" onchange="this.form.submit()">
+                <select class="select2" name="language" onchange="this.form.submit()">
                     {% for lang_code, lang_name in LANGUAGES %}
                         <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
                             {{ lang_name }}
@@ -237,7 +237,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                       <label>{% trans 'Broker company' %} :</label>
-                      <select class="inputtext" name="broker_company" id="broker_company_select">
+                      <select class="inputtext select2" name="broker_company" id="broker_company_select">
                           <option vlaue="" selected>{% trans 'select option' %}</option>
                           {% for broker in thraa %}
                           <option vlaue="{{broker.broker_company}}">{{broker.broker_company}}</option>
@@ -260,7 +260,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                       <label>{% trans 'Dev Sales :' %} :</label>
-                      <select class="inputtext" name="dev_sales" id="dev_sales_select">
+                      <select class="inputtext select2" name="dev_sales" id="dev_sales_select">
                         <option value="" selected>{% trans 'select option' %}</option>
                         {% for sale in unique_dev_sales %}
                           <option value="{{ sale }}">{{ sale }}</option>
@@ -302,7 +302,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                       <label>{% trans 'Branch' %} :</label>
-                      <select class="inputtext" name="branch">
+                      <select class="inputtext select2" name="branch">
                         <option vlaue="" selected>{% trans 'select option' %}</option>
                           <option vlaue="{% trans 'AL-tajamou' %}">{% trans 'AL-tajamou' %}</option>
                           <option vlaue="{% trans 'Maadi' %}">{% trans 'Maadi' %}</option>
@@ -528,8 +528,10 @@
 
     <script src="{% static 'assets/js/jquery.meanmenu.js' %}"></script>
 
-    <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+    <!-- <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script> -->
 
+    <script src="{% static 'assets/select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'assets/select2/form-advanced.init.js' %}"></script>
     <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
 
     <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
@@ -651,6 +653,7 @@
                             alert("Your order has been sent successfully");
             
                             var element = document.querySelector('.fromTLD');
+                            element.style.width = '100%';
                             var element2 = document.querySelector('.FormPage');
                             element2.style.width = '100%';
                             var MainTitle = document.querySelector('.MainTitle');
