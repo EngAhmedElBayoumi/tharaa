@@ -53,3 +53,15 @@ class Units_num(models.Model):
 
 
     
+class Thraa_info(models.Model):
+    broker_company=models.CharField(max_length=10000)
+    dev_sale=models.CharField(max_length=10000)
+    dev_sale_manager=models.CharField(max_length=10000)
+    
+    def __str__(self):
+        return f'company :{self.broker_company}'
+    
+
+    
+
+

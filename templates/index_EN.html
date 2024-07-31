@@ -223,9 +223,9 @@
                       <label>{% trans 'Broker company' %} :</label>
                       <select class="inputtext" name="broker_company" id="broker_company_select">
                           <option vlaue="" selected>{% trans 'select option' %}</option>
-                          <option vlaue="{% trans 'AL-tajamou' %}">{% trans 'AL-tajamou' %}</option>
-                          <option vlaue="{% trans 'Maadi' %}">{% trans 'Maadi' %}</option>
-                          <option vlaue="{% trans 'Homes Expo Alex' %}">{% trans 'Homes Expo Alex' %}</option>
+                          {% for broker in thraa %}
+                          <option vlaue="{{broker.broker_company}}" selected>{{broker.broker_company}}</option>
+                          {% endfor %}
                       </select>
                   </div>
               </div>
@@ -245,12 +245,11 @@
                   <div class="formgroup">
                       <label>{% trans 'Dev Sales :' %} :</label>
                       <select class="inputtext" name="dev_sales" id="dev_sales_select">
-                        <option vlaue="" selected>{% trans 'select option' %}</option>
-
-                          <option vlaue="{% trans 'AL-tajamou' %}">{% trans 'AL-tajamou' %}</option>
-                          <option vlaue="{% trans 'Maadi' %}">{% trans 'Maadi' %}</option>
-                          <option vlaue="{% trans 'Homes Expo Alex' %}">{% trans 'Homes Expo Alex' %}</option>
-                      </select>
+                        <option value="" selected>{% trans 'select option' %}</option>
+                        {% for sale in unique_dev_sales %}
+                          <option value="{{ sale }}">{{ sale }}</option>
+                        {% endfor %}
+                    </select>
                   </div>
               </div>
 
@@ -281,7 +280,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                     <label>{% trans 'Dev Sales Manager :' %}</label>
-                    <input type="text" name="dev_sales_manager" id="dev_sales_manager" class="inputtext" />
+                    <input type="text" name="dev_sales_manager" id="dev_sales_manager" class="inputtext" disabled />
                   </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -667,30 +666,7 @@
               </script>
                 
     
-{% comment %} <script>
-    document.getElementById('CovertPDFAndDowenload').addEventListener('click', function() {
-        html2canvas(document.querySelector('.fromTLD')).then(canvas => {
-            var imgData = canvas.toDataURL('image/png');
-            var pdf = new jsPDF('p', 'pt', 'a4');
-            var imgWidth = 210; // A4 width in mm
-            var pageHeight = 295; // A4 height in mm
-            var imgHeight = canvas.height * imgWidth / canvas.width;
-            var heightLeft = imgHeight;
-            var position = 0;
-            
-            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
 
-            while (heightLeft >= 0) {
-                position -= pageHeight;
-                pdf.addPage();
-                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-            }
-            pdf.save('form.pdf');
-        });
-    });
-</script> {% endcomment %}
 
 
 
@@ -704,6 +680,62 @@
     });
   </script>
 
+
+  <script>
+    $(document).ready(function() {
+      var $broker_company_select = $("#broker_company_select");
+      var $broker_company_input = $("#broker_company_input");
+  
+      $broker_company_select.on("change", function() {
+          var selectedValue = $(this).val();
+          console.log('select', selectedValue);
+          $broker_company_input.val(selectedValue);
+      });
+  
+  
+  
+  
+      var $dev_sales_select = $("#dev_sales_select");
+      var $dev_sales_input = $("#dev_sales_input");
+  
+      $dev_sales_select.on("change", function() {
+          var selectedValue = $(this).val();
+          console.log('select', selectedValue);
+          $dev_sales_input.val(selectedValue);
+      });
+  
+  // add event lisenter on the select element
+  $dev_sales_select.on("change", function() {
+      var selectedValue = $(this).val();
+      $dev_sales_input.val(selectedValue);
+  
+      // // ajax call to get Dev Sales Manager depend on dev sales and update dev_sales_manager input
+      var dev_sales_manager_input=document.getElementById("dev_sales_manager")
+      var url = "{% url 'home:get_dev_sales_manager' 'placeholder' %}".replace('placeholder', selectedValue);
+      $.ajax({
+          url: url,
+          type: 'GET',
+          success: function(response) {
+              // set the value of the input element
+              console.log('response', response);
+              dev_sales_manager_input.value = response.dev_sales_manager;
+          },
+          error: function(xhr, status, error) {
+              console.error(error);
+          }
+      });
+      
+  
+  
+  
+  
+  })
+  
+  
+  
+  });
+  
+  </script>
 
 
 

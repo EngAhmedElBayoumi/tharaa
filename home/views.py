@@ -1,9 +1,10 @@
 from django.shortcuts import render
 import datetime
 from django.http import HttpResponse
-from .models import orders , units , Customers_num , Units_num
+from .models import orders , units , Customers_num , Units_num , Thraa_info
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.http import JsonResponse
 
 
 def home(request):
@@ -27,7 +28,7 @@ def home(request):
         unit_num = 1003
         unit_sympol = "EOI"
         print('hiiiiiiiii')
-        Units_num.objects.create(units_num=unit_num, sympol=unit_sympol)
+        Units_num.objects.create(uints_num=unit_num, sympol=unit_sympol)
     else:
         unit_num = unit_number_obj.uints_num
         unit_sympol = unit_number_obj.sympol
@@ -36,16 +37,43 @@ def home(request):
     print('unit number', unit_num)
     unit_num = int(unit_num) + 10
     Units_num.objects.update(uints_num=unit_num)
-
+    thraa=Thraa_info.objects.all()
+    # Extract unique dev_sale values 
+    unique_dev_sales = set(broker.dev_sale for broker in thraa)    
+    
     context = {
         'customer_num': customer_num,
         'sympol': sympol,
         'unit_sympol': unit_sympol,
-        'unit_num': unit_num
+        'unit_num': unit_num,
+        'thraa':thraa,
+        'unique_dev_sales': unique_dev_sales
+        
     }
+    
+    
 
     return render(request, 'index_en.html', context)
 
+
+
+def get_dev_sales_manager(request, dev_sale):
+    print("dev sale parameter", dev_sale)
+    
+    # Get dev sales manager based on dev sales from thraa_info table
+    dev_sales_manager_obj = Thraa_info.objects.filter(dev_sale=dev_sale).first()
+
+    print("dev_sales_manager_obj", dev_sales_manager_obj)
+    
+    if dev_sales_manager_obj:
+        dev_sales_manager = dev_sales_manager_obj.dev_sale_manager
+    else:
+        dev_sales_manager = None
+        
+    print("dev_sales_manager", dev_sales_manager)
+    
+    # Return JSON response with dev_sales_manager value
+    return JsonResponse({'dev_sales_manager': dev_sales_manager})
 
 @csrf_exempt
 def order(request):
@@ -106,3 +134,13 @@ def order(request):
         return HttpResponse("Order and units created successfully.")
     else:
         return HttpResponse("This endpoint only accepts POST requests.", status=405)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 

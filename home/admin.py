@@ -2,9 +2,10 @@
 from django.contrib import admin
 from django.urls import path
 from django.template.response import TemplateResponse
-from .models import orders as Orders, units as Units , Customers_num
+from .models import orders as Orders, units as Units , Customers_num , Thraa_info
 from django.utils.html import format_html
 from django.db.models import Count
+
 
 class CustomAdminSite(admin.AdminSite):
     def get_urls(self):
@@ -56,4 +57,11 @@ class UnitsAdmin(admin.ModelAdmin):
 @admin.register(Customers_num, site=admin_site)
 class Customers_numAdmin(admin.ModelAdmin):
     list_display = ('customer_num',)
+    
+    
+@admin.register(Thraa_info, site=admin_site)
+class Thraa_infoAdmin(admin.ModelAdmin):
+    list_display = ('broker_company','dev_sale','dev_sale_manager')
+    search_fields = ('broker_company','dev_sale','dev_sale_manager')
+    list_per_page = 100
 

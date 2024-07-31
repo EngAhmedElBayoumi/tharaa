@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'import_export',
     'jazzmin',
     "django.contrib.admin",
     "django.contrib.auth",
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "home"
+    "home",
 ]
 
 MIDDLEWARE = [
@@ -180,3 +181,5 @@ JAZZMIN_SETTINGS = {
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000  # Increase this number as needed
