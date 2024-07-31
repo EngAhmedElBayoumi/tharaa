@@ -3,7 +3,7 @@ import datetime
 # Create your models here.
 
 class units(models.Model):
-    number_of_units=models.IntegerField()
+    number_of_units=models.CharField(max_length=50,default="EOI1003")
     unit_type=models.CharField(max_length=100)
     floor=models.CharField(max_length=100)
     
@@ -14,7 +14,7 @@ class units(models.Model):
 
 class orders(models.Model):
     date=models.DateField(default=datetime.datetime.now)
-    customer_num=models.IntegerField()
+    customer_num=models.CharField(max_length=50,default="G1002")
     name=models.CharField(max_length=50)
     birthday=models.CharField(max_length=100)
     national_id=models.CharField(max_length=50)
@@ -27,6 +27,7 @@ class orders(models.Model):
     broker_company=models.CharField(max_length=50)
     dev_sales=models.CharField(max_length=50)
     broker_sales=models.CharField(max_length=50)
+    broker_id=models.CharField(max_length=50)
     dev_sales_manager=models.CharField(max_length=50)
     branch=models.CharField(max_length=50)
     units=models.ManyToManyField(units)
@@ -41,13 +42,14 @@ class orders(models.Model):
         
         
 class Customers_num(models.Model):
-    customer_num=models.CharField(max_length=50,default="G1001")
+    customer_num=models.CharField(max_length=50,default="1002")
+    sympol=models.CharField(max_length=10,default="G")
     
     
     
 class Units_num(models.Model):
-    uints_num=models.CharField(max_length=50,default="1001")
+    uints_num=models.CharField(max_length=50,default="1003")
+    sympol=models.CharField(max_length=10,default="EOI")
 
 
-    
     

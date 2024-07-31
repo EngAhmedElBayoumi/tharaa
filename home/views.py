@@ -1,25 +1,50 @@
 from django.shortcuts import render
 import datetime
 from django.http import HttpResponse
-from .models import orders , units , Customers_num
+from .models import orders , units , Customers_num , Units_num
 from django.views.decorators.csrf import csrf_exempt
 import json
 
 
 def home(request):
-    # get Customers_num 
-    customer_num = Customers_num.objects.first()
-    if not customer_num:
-        customer_num = 1000
+    # Get customer number
+    customer_number_obj = Customers_num.objects.first()
+    if not customer_number_obj:
+        customer_num = 1002
+        sympol = "G"
+        Customers_num.objects.create(customer_num=customer_num, sympol=sympol)
     else:
-        customer_num = customer_num.customer_num
-    customer_num += 1
+        customer_num = customer_number_obj.customer_num
+        sympol = customer_number_obj.sympol
+
+    print("customer number", customer_num)
+    customer_num = int(customer_num) + 1
     Customers_num.objects.update(customer_num=customer_num)
-    
-    return render(request, 'index_en.html', {'customer_num': customer_num})
 
+    # Get unit number
+    unit_number_obj = Units_num.objects.first()
+    if not unit_number_obj:
+        unit_num = 1003
+        unit_sympol = "EOI"
+        print('hiiiiiiiii')
+        Units_num.objects.create(units_num=unit_num, sympol=unit_sympol)
+    else:
+        unit_num = unit_number_obj.uints_num
+        unit_sympol = unit_number_obj.sympol
+        print('helooooo')
 
+    print('unit number', unit_num)
+    unit_num = int(unit_num) + 10
+    Units_num.objects.update(uints_num=unit_num)
 
+    context = {
+        'customer_num': customer_num,
+        'sympol': sympol,
+        'unit_sympol': unit_sympol,
+        'unit_num': unit_num
+    }
+
+    return render(request, 'index_en.html', context)
 
 
 @csrf_exempt
@@ -42,6 +67,7 @@ def order(request):
         broker_sales = request.POST.get('broker_sales', '')
         dev_sales_manager = request.POST.get('dev_sales_manager', '')
         branch = request.POST.get('branch', '')
+        broker_id = request.POST.get('broker_id', '')
 
         # Create the order
         new_order = orders.objects.create(
@@ -60,7 +86,8 @@ def order(request):
             dev_sales=dev_sales,
             broker_sales=broker_sales,
             dev_sales_manager=dev_sales_manager,
-            branch=branch
+            branch=branch,
+            broker_id=broker_id
         )
 
         # Parse units JSON string into Python list
