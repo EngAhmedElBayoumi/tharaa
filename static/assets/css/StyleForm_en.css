@@ -1,0 +1,37 @@
+.fromTLD .FormPage .FormContent {
+    direction: ltr;
+}
+
+
+.fromTLD .FormPage .FormContent .sectitle h2{
+    border-radius: 0 0 25px 0;
+}
+.addNewUnitess{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.fromTLD .FormPage .FormContent .formgroup label{
+    font-size: 15px;
+}
+.form-check-inline .radiotextsty{
+    font-size: 14px;
+}
+
+
+
+
+.nice-select{
+    height: 30px;
+}
+.nice-select{
+        text-align: left!important;
+}
+.nice-select .list{
+    right: auto;
+    left: 0;
+}
+.nice-select:after{
+    right: 12px;
+    left: auto;
+}

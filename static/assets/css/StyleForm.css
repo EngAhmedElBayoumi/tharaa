@@ -1,0 +1,350 @@
+body{
+    font-family: 'Cairo', sans-serif;
+color: #243775;
+}
+*{
+    color: #243775;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+        color: #243775;
+}
+p{
+        color: #243775;
+        font-family: 'Cairo', sans-serif;
+}
+.fromTLD{
+    font-family: 'Cairo', sans-serif;
+
+}
+
+
+.fromTLD .FormPage{
+        display: block;
+    width: 60%;
+    border: 1px solid #eee;
+    margin: auto;
+    padding: 30px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.fromTLD .FormPage .logo{
+        display: block;
+    width: 170px;
+}
+.fromTLD .FormPage .logo img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.fromTLD .FormPage .FormContent{
+        direction: rtl;
+}
+.fromTLD .FormPage .FormContent .MainTitle{
+    margin-bottom: 50px;
+}
+.fromTLD .FormPage .FormContent .MainTitle h2{
+    text-align: center;
+    margin: 0;
+    font-family: 'Roboto';
+    font-weight: revert;
+    font-size: 25px;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    align-items: center;
+        justify-content: center;
+    margin-bottom: 15px;
+    gap:5px;
+
+}
+.fromTLD .FormPage .FormContent .MainTitle h2 img{
+    height: 30px;
+}
+.fromTLD .FormPage .FormContent .sectitle{
+    
+}
+.fromTLD .FormPage .FormContent .sectitle h2{
+    font-family: 'Cairo';
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    width: max-content;
+    background: #243775;
+    color: #fff;
+    padding: 8px 8px 8px 20px;
+    border-radius: 0 0 0 25px;
+    min-width: 150px;
+}
+.fromTLD .FormPage .FormContent .sectitle h2 span{
+    color: #fff;
+    margin: 0 5px;
+}
+.fromTLD .FormPage .FormContent .formgroup{
+        margin-bottom: 15px;
+        border-bottom: 0px solid #243775;
+    display: flex;
+}
+.fromTLD .FormPage .FormContent .formgroup label{
+        font-weight: 600;
+    position: relative;
+    top: 2px;
+        background: transparent;
+        padding-left: 5px;
+}
+
+.fromTLD .FormPage .FormContent .formgroup .inputtext{
+    border: none;
+    padding: 0;
+    outline: 0;
+    padding: 0 5px;
+    flex-grow: 1;
+    background: transparent;
+    border-bottom: 1px solid #243775;
+    border-radius: 0;
+}
+.fromTLD .FormPage .FormContent .formgroup .inputtext:focus{
+    outline: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+.radiotextsty {
+  color: #A5A4BF;
+  font-size: 18px;
+}
+
+.customradio {
+  display: block;
+  position: relative;
+  padding-right: 30px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+        width: max-content;
+    margin: auto;
+    color: #243775;
+}
+.customradio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  height: 22px;
+  width: 22px;
+  background-color: white;
+  border-radius: 50%;
+  border:1px solid #BEBEBE;
+}
+
+.customradio:hover input ~ .checkmark {
+  background-color: transparent;
+}
+
+.customradio input:checked ~ .checkmark {
+  background-color: white;
+  border:1px solid #BEBEBE;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.customradio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.customradio .checkmark:after {
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #243775;
+}
+
+/* Custom Radio Button End*/
+
+.form-check-inline{
+
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-check-inline .radiotextsty{
+    font-size: 16px;
+    color: #243775;
+    font-weight: 700;
+    margin-top: 9px;
+    position: relative;
+    top: 0px;
+}
+
+
+
+
+
+
+.TherdSlider{
+        font-family: 'Cairo';
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+
+.table-bordered tbody tr td {
+    border: 1px solid #f0f0f0;
+    font-weight: 400;
+    color: #6e727f;
+    overflow-x: auto;
+    padding: 0 5px;
+}
+
+.table .form-check-inline {
+     margin-bottom: 0px; 
+    display: block;
+    height: 35px;
+    overflow: hidden;
+        margin-right: 0;
+}
+.table .form-check-inline .radiotextsty {
+    font-size: 12px;
+    color: #000;
+    font-weight: 500;
+    margin-top: 9px;
+    position: relative;
+    top: 3px;
+}
+
+.table tbody tr td p{
+        font-weight: 500;
+    font-family: 'Cairo';
+    color: #000;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 4px;
+}
+.table tbody tr td p span{
+        font-weight: 300;
+    font-size: 13px;
+}
+
+
+
+
+
+
+.Shoroot{
+    
+}
+
+.Shoroot p{
+    color: #243775;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    
+}
+
+
+.SendOrderer{
+    display: block;
+    width: 250px;
+    height: 55px;
+    padding: 0 15px;
+    line-height: 55px;
+    background: #243775;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+        font-family: 'Cairo', sans-serif;
+    margin:auto;
+    margin-top: 40px;
+    border: 0;
+    border-radius: 55px;
+}
+.UnitesGroup{
+    position: relative;
+}
+.UnitesGroup .UnitesItem{
+    padding: 15px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    border-radius: 16px;
+}
+.addNewUnitess{
+        display: block;
+    width: max-content;
+    margin: 0;
+    margin-right: auto;
+    background: #ebebeb;
+    height: 45px;
+    border: 0;
+    color: #243775;
+    padding: 0 15px;
+    border-radius: 55px;
+    transition: all .4s ease-in-out;
+}
+.addNewUnitess:hover{
+        background: #243775;
+    color: #fff;
+}
+
+.DowenloadPDFF{
+    margin-bottom: 50px;
+}
+
+
+.nice-select{
+    height: 30px;
+}
+.nice-select{
+        text-align: right !important;
+}
+.nice-select .list{
+    right: 0;
+    left: auto;
+}
+.nice-select:after{
+    left: 12px;
+    right: auto;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: transparent;
+    border: 0;
+    border-radius: 4px;
+    border-bottom: 1px solid #243775;
+    border-radius: 0;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #aaa;
+    outline: 0;
+    box-shadow: none;
+}
+
