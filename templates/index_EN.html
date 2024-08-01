@@ -378,6 +378,7 @@
               <div class="UnitesGroup">
                 <div class="ItemssNewUints">
                   <div class="UnitesItem">
+                    <button class="DeleteUnitt" type="button">Delete</button>
                     <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="sectitle mb-2">
@@ -661,6 +662,14 @@
                       
 
                   });
+                  $(document).on('click', '.DeleteUnitt', function() {
+                      $(this).closest(".UnitesItem").remove();
+                      var updatedUnits = Number($("#number_of_units").text()) - 1;
+                      $("#number_of_units").text(updatedUnits);
+                      $("#number_of_units_input").val(updatedUnits);
+                      var updatedAmount = Number($("#amount").val()) - 50000;
+                      $("#amount").val(updatedAmount);
+                  });
               
                   $("#sendForm").submit(function(e) {
                       e.preventDefault();
@@ -762,6 +771,10 @@
                             MainTitle.style.marginTop = '10px';
                             var addNewUnitess = document.querySelector('.addNewUnitess');
                             addNewUnitess.style.display = 'none';
+                            var deleteUnitts = document.querySelectorAll('.DeleteUnitt');
+                            deleteUnitts.forEach(function(deleteUnitt) {
+                                deleteUnitt.style.display = 'none';
+                            });
                             
 
                             var opt = {
@@ -783,6 +796,9 @@
                             html2pdf().set(opt).from(element).save().then(function() {
                               element.style.width = '60%';
                               addNewUnitess.style.display = 'block';
+                              deleteUnitts.forEach(function(deleteUnitt) {
+                                deleteUnitt.style.display = 'block';
+                            });
                           });
                             },
                               error: function(xhr, status, error) {
