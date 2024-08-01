@@ -35,3 +35,5 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 admin.site.index_title=_('Tharaa Dashboard')
 admin.site.site_header=_('Tharaa Dashboard')
 admin.site.site_title=_('Tharaa Dashboard')
+
+handler404 = 'home.views.handler404'

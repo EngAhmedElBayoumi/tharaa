@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.template.response import TemplateResponse
-from .models import orders as Orders, units as Units , Customers_num , Thraa_info
+from .models import orders as Orders, units as Units , Customers_num , Thraa_info , Units_num
 from django.utils.html import format_html
 from django.db.models import Count
 
@@ -64,4 +64,22 @@ class Thraa_infoAdmin(admin.ModelAdmin):
     list_display = ('broker_company','dev_sale','dev_sale_manager')
     search_fields = ('broker_company','dev_sale','dev_sale_manager')
     list_per_page = 100
+    
+
+@admin.register(Units_num, site=admin_site)
+class Units_numAdmin(admin.ModelAdmin):
+    list_display = ('uints_num',)
+
+
+from django.contrib.auth.models import User, Group
+from django.contrib.auth.admin import UserAdmin, GroupAdmin
+#add user , group to new admin
+@admin.register(User, site=admin_site)
+class CustomUserAdmin(UserAdmin):
+    pass
+
+
+@admin.register(Group, site=admin_site)
+class CustomGroupAdmin(GroupAdmin):
+    pass
 

@@ -125,7 +125,7 @@
         </div>
         <div class="FormContent">
           <div class="MainTitle">
-            <h2><span>{% trans 'EOL' %}</span><img src="{% static 'assets/img/glee.png' %}" /></h2>
+            <h2><span>{% trans 'EOI' %}</span><img src="{% static 'assets/img/glee.png' %}" /></h2>
             <div class="row" style="justify-content: center">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="formgroup">
@@ -228,43 +228,106 @@
                 <div class="col-lg-3 p-0">
                   <div class="form-check-inline">
                     <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Ambassador' %}</span>
+                      <input type="radio" name="clientSource" value="Ambassador" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
                       <span class="radiotextsty">{% trans 'Personal' %}</span>
                       <input type="radio" name="clientSource" value="Personal" />
                       <span class="checkmark"></span>
                     </label>
                   </div>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div class="formgroup">
-                      <label>{% trans 'Broker company' %} :</label>
-                      <select class="inputtext select2" name="broker_company" id="broker_company_select">
-                          <option vlaue="" selected>{% trans 'select option' %}</option>
-                          {% for broker in thraa %}
-                          <option vlaue="{{broker.broker_company}}">{{broker.broker_company}}</option>
-                          {% endfor %}
-                      </select>
+                <div id="broker_section" >
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                        <label>{% trans 'Broker company' %} :</label>
+                        <select class="inputtext select2" name="broker_company" id="broker_company_select">
+                            <option vlaue="" selected>{% trans 'select option' %}</option>
+                            {% for broker in thraa %}
+                            <option vlaue="{{broker.broker_company}}">{{broker.broker_company}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                   </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-none" >
+                    <div class="formgroup">
+                      <label>{% trans 'Broker Company :' %}</label>
+                      <input type="text" name="broker_company" id="broker_company_input" class="inputtext" />
+                    </div>
+                  </div>
+                  <!------------------------------------->
+                  
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                    <div class="formgroup">
+                      <label>{% trans 'Broker Company id :' %}</label>
+                      <input type="text" name="broker_company_id" id="broker_company_id" disabled value="{{broker_company_id}}" class="inputtext" />
+                    </div>
+                  </div>
+                </div>
+                <div id="ambassador_section">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador Name :' %}</label>
+                      <input type="text" name="ambassador_name" id="ambassador_name" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador ID :' %}</label>
+                      <input type="text" name="ambassador_id" id="ambassador_id" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador email :' %}</label>
+                      <input type="text" name="ambassador_email" id="ambassador_email" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador phone :' %}</label>
+                      <input type="text" name="ambassador_phone" id="ambassador_phone" class="inputtext" />
+                    </div>
+                  </div>
+                  
+                </div>
+
+
+              <!------------------------------------->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="formgroup">
+                    <label>{% trans 'Dev Sales Manager :' %} :</label>
+                    <select class="inputtext select2" name="dev_sales_manager" id="dev_sales_manager_select">
+                      <option value="" selected>{% trans 'select option' %}</option>
+                      {% for dev_sales_manager in unique_dev_sale_manager %}
+                      <option vlaue="{{dev_sales_manager}}">{{dev_sales_manager}}</option>
+                      {% endfor %}
+                  </select>
+                </div>
               </div>
-
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-none" >
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-none">
                   <div class="formgroup">
-                    <label>{% trans 'Broker Company :' %}</label>
-                    <input type="text" name="broker_company" id="broker_company_input" class="inputtext" />
+                    <label>{% trans 'Dev Sales Manager :' %}</label>
+                    <input type="text" name="dev_sales_manager" id="dev_sales_manager_input" class="inputtext" disabled />
                   </div>
                 </div>
 
 
-                <!------------------------------------->
 
+
+                <!------------------------------------->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                       <label>{% trans 'Dev Sales :' %} :</label>
                       <select class="inputtext select2" name="dev_sales" id="dev_sales_select">
                         <option value="" selected>{% trans 'select option' %}</option>
-                        {% for sale in unique_dev_sales %}
-                          <option value="{{ sale }}">{{ sale }}</option>
-                        {% endfor %}
+                        
                     </select>
                   </div>
               </div>
@@ -279,26 +342,22 @@
                 </div>
 
 
-
+                <div id="broker_sales_section2"> 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                     <label>{% trans 'Broker Sales :' %}</label>
-                    <input type="text" name="broker_sales" class="inputtext" />
+                    <input type="text" name="broker_sales" id="broker_sales_input" class="inputtext" />
                   </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                     <label>{% trans 'Broker id :' %}</label>
-                    <input type="text" name="broker_id" class="inputtext" />
+                    <input type="text" name="broker_id" id="broker_id_input" class="inputtext" />
                   </div>
+                </div>
                 </div>
                 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div class="formgroup">
-                    <label>{% trans 'Dev Sales Manager :' %}</label>
-                    <input type="text" name="dev_sales_manager" id="dev_sales_manager" class="inputtext" disabled />
-                  </div>
-                </div>
+                
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
                       <label>{% trans 'Branch' %} :</label>
@@ -307,6 +366,8 @@
                           <option vlaue="{% trans 'AL-tajamou' %}">{% trans 'AL-tajamou' %}</option>
                           <option vlaue="{% trans 'Maadi' %}">{% trans 'Maadi' %}</option>
                           <option vlaue="{% trans 'Homes Expo Alex' %}">{% trans 'Homes Expo Alex' %}</option>
+                          <option vlaue="{% trans 'Dusit Expo' %}">{% trans 'Dusit Expo' %}</option>
+                          <option vlaue="{% trans 'kempinski hotel' %}">{% trans 'kempinski hotel' %}</option>
                       </select>
                   </div>
               </div>
@@ -421,15 +482,22 @@
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="sectitle">
-                <h2>{% trans 'payment Methiods' %}</h2>
+                <h2>{% trans 'Payment Methods' %}</h2>
               </div>
             </div>
             <div class="col-lg-12 mb-3">
               <div class="row" style="margin: 0 -15px; justify-content: center">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div class="formgroup" style="width: 250px">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="formgroup" >
                     <label>{% trans 'Amount' %}</label>
-                    <input type="number" name="amount" class="inputtext" />
+                    <input type="number" name="amount" id="amount" class="inputtext" disabled value="50000" />
+                    
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="formgroup" style="width: ">
+                    <label>{% trans 'Custom Amount' %}</label>
+                    <input type="number" name="editamount" id="editamount"  class="inputtext notused" placeholder="{% trans 'Custom Amount (optional)' %}" />
                   </div>
                 </div>
                 <div class="col-lg-3 p-0">
@@ -444,7 +512,16 @@
                 <div class="col-lg-3 p-0">
                   <div class="form-check-inline">
                     <label class="customradio">
-                      <span class="radiotextsty">{% trans 'checks' %}</span>
+                      <span class="radiotextsty">{% trans 'Credit Card' %}</span>
+                      <input type="radio" name="payment" value="credit_card"/>
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Checks' %}</span>
                       <input type="radio" name="payment" value="checks" />
                       <span class="checkmark"></span>
                     </label>
@@ -453,7 +530,7 @@
                 <div class="col-lg-3 p-0">
                   <div class="form-check-inline">
                     <label class="customradio">
-                      <span class="radiotextsty">{% trans 'cash' %}</span>
+                      <span class="radiotextsty">{% trans 'Cash' %}</span>
                       <input type="radio" name="payment" value="cash" />
                       <span class="checkmark"></span>
                     </label>
@@ -557,7 +634,10 @@
     <script src="{% static 'assets/js/script.js' %}"></script>
 
     
-    <script>new WOW().init();</script>
+<script>
+  new WOW().init();
+
+</script>
     
             <script>
                 $(document).ready(function() {
@@ -575,6 +655,11 @@
                       $("#number_of_units_input").val(numberOfUnits + 1);
               
                       $(".ItemssNewUints").append(newItem);
+                      // amount input value + 50000
+                      var amount = Number($("#amount").val());
+                      $("#amount").val(amount + 50000);
+                      
+
                   });
               
                   $("#sendForm").submit(function(e) {
@@ -590,8 +675,14 @@
 
                           var value = $(this).val();
                           var isReadonly = $(this).attr('readonly');
-              
-                          if (!value && !isReadonly) {
+                          var isHidden = $(this).is(':hidden');
+                          // check if this input take display none
+                          var isNotDisplayed = $(this).css('display') === 'none';
+                          // check if has class notused 
+                          var notUsed = $(this).hasClass('notused');
+                          
+                          if (!value && !isReadonly && !isHidden && !isNotDisplayed && !notUsed) {
+                            console.log($(this))
                               isValid = false;
                               $(this).addClass('is-invalid');
                           } else {
@@ -645,6 +736,17 @@
                       
                       formData['csrfmiddlewaretoken'] = $('[name="csrfmiddlewaretoken"]').val();
                       console.log("data ", formData);
+
+                      // check if input with id editamount has value
+                      if ($("#editamount").val()) {
+                          formData['amount'] = $("#editamount").val();
+                          // amount input value= 0
+                          var amount = document.getElementById('amount')
+                          console.log("amount ", amount)
+                          amount.value = 0
+                          
+                      }
+
                       $.ajax({
                           url: "{% url 'home:order' %}",
                           type: 'POST',
@@ -682,20 +784,16 @@
                               element.style.width = '60%';
                               addNewUnitess.style.display = 'block';
                           });
-                        },
-                          error: function(xhr, status, error) {
-                              console.log(xhr.responseText);
-                          }
+                            },
+                              error: function(xhr, status, error) {
+                                  console.log(xhr.responseText);
+                              }
+                          });
                       });
                   });
-              });
                                     
-         </script>
+            </script>
                 
-    
-
-
-
 
 
 <script>
@@ -705,18 +803,52 @@
       const formattedDate = today.toISOString().split('T')[0]; // Format as YYYY-MM-DD
       dateInput.value = formattedDate;
     });
-  </script>
+</script>
 
 
 <script>
     $(document).ready(function() {
       var $broker_company_select = $("#broker_company_select");
       var $broker_company_input = $("#broker_company_input");
-  
+      var broker_company_id=$("#broker_company_id");
+      var dev_sales_manager_select = $("#dev_sales_manager_select");
+      var dev_sales_manager_input = $("#dev_sales_manager_input");
       $broker_company_select.on("change", function() {
           var selectedValue = $(this).val();
           console.log('select', selectedValue);
           $broker_company_input.val(selectedValue);
+          url="{% url 'home:get_broker_company_details' 'placeholder' %}".replace('placeholder', selectedValue)
+          $.ajax({
+              url: url,
+              type: 'GET',
+              success: function(response) {
+                  // set the value of the input element
+                  console.log('response', response);
+                  broker_company_id.val(response.broker_company_id);
+                  // set dev_sales_manager_select option with the array dev_sale_managers that send in response
+                  // Clear existing options
+                  dev_sales_manager_select.empty();
+                  // please select option 
+                  var selected_option = $('<option></option>').attr("value", "").text("select option");
+                  selected_option.attr("selected", true);
+                  dev_sales_manager_select.append(selected_option);
+                  
+                  // Add new options
+                  response.dev_sale_managers.forEach(function(manager) {
+                      var option = $('<option></option>').attr("value", manager).text(manager);
+                      dev_sales_manager_select.append(option);
+                  });
+              },
+              error: function(xhr, status, error) {
+                  console.error(error);
+              }
+          })
+
+
+
+
+
+
       });
 
       var $dev_sales_select = $("#dev_sales_select");
@@ -727,39 +859,184 @@
           console.log('select', selectedValue);
           $dev_sales_input.val(selectedValue);
       });
-  
-  // add event lisenter on the select element
-  $dev_sales_select.on("change", function() {
-      var selectedValue = $(this).val();
-      $dev_sales_input.val(selectedValue);
-  
-      // // ajax call to get Dev Sales Manager depend on dev sales and update dev_sales_manager input
-      var dev_sales_manager_input=document.getElementById("dev_sales_manager")
-      var url = "{% url 'home:get_dev_sales_manager' 'placeholder' %}".replace('placeholder', selectedValue);
-      $.ajax({
-          url: url,
-          type: 'GET',
-          success: function(response) {
-              // set the value of the input element
-              console.log('response', response);
-              dev_sales_manager_input.value = response.dev_sales_manager;
-          },
-          error: function(xhr, status, error) {
-              console.error(error);
-          }
+
+      dev_sales_manager_select.on("change", function() {
+          var selectedValue = $(this).val();
+          console.log('select', selectedValue);
+          dev_sales_manager_input.val(selectedValue);
+          var url = "{% url 'home:get_dev_sales_manager_details' 'placeholder' %}".replace('placeholder', selectedValue);
+          $.ajax({
+              url: url,
+              type: 'GET',
+              success: function(response) {
+                  // set options for dev_sales_select with the array dev_sales that send in response
+                  console.log('response', response);
+                  // Clear existing options
+                  $dev_sales_select.empty();
+                  // please select option
+                  var selected_option = $('<option></option>').attr("value", "").text("select option");
+                  selected_option.attr("selected", true);
+                  $dev_sales_select.append(selected_option);
+                  // Add new options
+                  response.dev_sales.forEach(function(sales) {
+                      var option = $('<option></option>').attr("value", sales).text(sales);
+                      $dev_sales_select.append(option);
+                  });
+
+                  // check if response.dev_sales is empty array set 
+                  if (response.dev_sales.length === 0) {
+                    dev_sales_input.val("no results");
+                  }
+                  
+                  
+
+              },
+              error: function(xhr, status, error) {
+                  console.error(error);
+              }
+          })
+
+
+
       });
+  
+  
       
   
   
   
   
-  })
+ 
   
   
   
   });
   
-  </script>
+  $(document).ready(function() {
+    var ambassador_section= $("#ambassador_section");
+    ambassador_section.hide();
+
+    function update_inputs_value(flag){
+      // inputs id that need to be updated depend on the flag
+      // broker_company_input , broker_company_id , ambassador_name, ambassador_id , ambassador_phone , ambassador_email
+      // get all inputs
+      var broker_company_input = $("#broker_company_input");
+      var broker_company_id = $("#broker_company_id");
+      var ambassador_name = $("#ambassador_name");
+      var ambassador_id = $("#ambassador_id");
+      var ambassador_phone = $("#ambassador_phone");
+      var ambassador_email = $("#ambassador_email");
+      var broker_sale=$("#broker_sales_input");
+      var broker_id=$("#broker_id_input");
+      if (flag==="Ambassador"){
+        broker_company_input.val("no results");
+        broker_company_id.val("no results");
+        broker_sale.val("no results");
+        broker_id.val("no results");
+        ambassador_name.val("");
+        ambassador_id.val("");
+        ambassador_phone.val("");
+        ambassador_email.val("");
+      }else if (flag==="direct"){
+        broker_company_input.val("no results");
+        broker_company_id.val("no results");
+        broker_sale.val("no results");
+        broker_id.val("no results");
+        ambassador_name.val("no results");
+        ambassador_id.val("no results");
+        ambassador_phone.val("no results");
+        ambassador_email.val("no results");
+      }else if(flag==="Indirect"){
+        broker_company_input.val("");
+        broker_company_id.val("");
+        broker_sale.val("");
+        broker_id.val("");
+        ambassador_name.val("no results");
+        ambassador_id.val("no results");
+        ambassador_phone.val("no results");
+        ambassador_email.val("no results");
+      }else if (flag==="Personal"){
+        broker_company_input.val("");
+        broker_company_id.val("");
+        broker_sale.val("");
+        broker_id.val("");
+        ambassador_name.val("no results");
+        ambassador_id.val("no results");
+        ambassador_phone.val("no results");
+        ambassador_email.val("no results");
+      }
+    }
+
+
+
+    function get_all_dev_sale_managers() {
+        var dev_sales_manager_select= $("#dev_sales_manager_select");
+        var url = "{% url 'home:get_all_dev_sales_manager' %}";
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(response) {
+                // set options for dev_sales_manager_select with the array dev_sales_manager that send in response
+                console.log('response', response);
+                // Clear existing options
+                dev_sales_manager_select.empty();
+                // please select option
+                var selected_option = $('<option></option>').attr("value", "").text("select option");
+                selected_option.attr("selected", true);
+                dev_sales_manager_select.append(selected_option);
+                // Add new options
+                response.dev_sales_manager.forEach(function(manager) {
+                    var option = $('<option></option>').attr("value", manager).text(manager);
+                    dev_sales_manager_select.append(option);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        })
+
+    }
+    
+    $("input[name='clientSource']").on("change", function() {
+      var selectedValue = $(this).val();
+      var broker_section = document.getElementById("broker_section");
+      var broker_section2 = document.getElementById("broker_sales_section2");
+      var ambassador_section = document.getElementById("ambassador_section");
+  
+      if (selectedValue === 'direct') {
+          console.log('direct');
+          broker_section.style.display = 'none';
+          ambassador_section.style.display = 'none';
+          broker_section2.style.display = 'none';
+          get_all_dev_sale_managers();
+          update_inputs_value("direct");
+      } else if (selectedValue === 'Ambassador') {
+          console.log('Ambassador');
+          broker_section.style.display = 'none';
+          ambassador_section.style.display = 'block';
+          broker_section2.style.display = 'none';
+          get_all_dev_sale_managers();
+          update_inputs_value("Ambassador");
+      } else if (selectedValue === 'Indirect') {
+          console.log('Indirect');
+          broker_section.style.display = 'block';
+          ambassador_section.style.display = 'none';
+          broker_section2.style.display = 'block';
+          update_inputs_value("Indirect");
+      } else if (selectedValue === 'Personal') {
+          console.log('Personal');
+          broker_section.style.display = 'block';
+          ambassador_section.style.display = 'none';
+          broker_section2.style.display = 'block';
+          update_inputs_value("Personal");
+      }
+  });
+  });
+
+
+
+
+</script>
 
 
 

@@ -28,7 +28,7 @@
         data: {
             labels: [{% for unit in units_data %}'{{ unit.unit_type }}',{% endfor %}],
             datasets: [{
-                label: 'Number of Units',
+                label: 'Number of Categories',
                 data: [{% for unit in units_data %}{{ unit.count }},{% endfor %}],
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -51,7 +51,7 @@
         data: {
             labels: [{% for order in orders_data %}'{{ order.day }}',{% endfor %}],
             datasets: [{
-                label: 'Number of Orders',
+                label: 'Number of EOI',
                 data: [{% for order in orders_data %}{{ order.count }},{% endfor %}],
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255, 99, 132, 1)',

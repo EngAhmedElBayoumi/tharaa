@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-@_yez8dprtghou#r!th%xxo=-84c*7ezf&m0=xmswt0_7sh8x$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -163,10 +163,6 @@ JAZZMIN_SETTINGS = {
     "user_avatar": None,
     "show_ui_builder": False,
     "navigation_expanded": True,
-    "hide_apps": [],
-    "hide_models": [
-        "auth.group",
-        ],
     "related_modal_active": False,
     "custom_css": None,
     "custom_js": 'js/admin.js',

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 10:57+0300\n"
+"POT-Creation-Date: 2024-08-01 08:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1233,20 +1233,20 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
-#: .\project\settings.py:149 .\project\settings.py:150
-#: .\project\settings.py:151 .\project\settings.py:152
+#: .\project\settings.py:150 .\project\settings.py:151
+#: .\project\settings.py:152 .\project\settings.py:153
 msgid "Tharaa"
 msgstr "Tharaa"
 
-#: .\project\settings.py:153
+#: .\project\settings.py:154
 msgid "Welcome to Tharaa"
 msgstr "اهلا بك في Tharaa"
 
-#: .\project\settings.py:159
+#: .\project\settings.py:160
 msgid "Home"
 msgstr ""
 
-#: .\project\settings.py:160
+#: .\project\settings.py:161
 msgid "Statistics"
 msgstr ""
 
@@ -1258,171 +1258,236 @@ msgstr "Tharaa Dashboard"
 msgid "Tharaa Form"
 msgstr "Tharaa Form"
 
-#: .\templates\index_EN.html:108
-msgid "EOL"
+#: .\templates\index_EN.html:128
+#, fuzzy
+#| msgid "EOL"
+msgid "EOI"
 msgstr "استمارة ابداء رغبة شراء"
 
-#: .\templates\index_EN.html:112
+#: .\templates\index_EN.html:132
 msgid "Date:"
 msgstr "التاريخ:"
 
-#: .\templates\index_EN.html:118
+#: .\templates\index_EN.html:138
 msgid "Customer Num:"
 msgstr "رقم العميل:"
 
-#: .\templates\index_EN.html:127
+#: .\templates\index_EN.html:147
 msgid "Customer Data"
 msgstr "بيانات العميل"
 
-#: .\templates\index_EN.html:134
+#: .\templates\index_EN.html:154
 msgid "Name :"
 msgstr "الاسم :"
 
-#: .\templates\index_EN.html:140
+#: .\templates\index_EN.html:160
 msgid "BirthDay :"
 msgstr "تاريخ الميلاد :"
 
-#: .\templates\index_EN.html:146
+#: .\templates\index_EN.html:166
 msgid "National ID / Passport:"
 msgstr "الرقم القومي / جواز السفر"
 
-#: .\templates\index_EN.html:152
+#: .\templates\index_EN.html:172
 msgid "Phone:"
 msgstr "التليفون :"
 
-#: .\templates\index_EN.html:158
+#: .\templates\index_EN.html:178
 msgid "Mobile:"
 msgstr " رقم المحمول :"
 
-#: .\templates\index_EN.html:164
+#: .\templates\index_EN.html:184
 msgid "Occupation:"
 msgstr "المهنة :"
 
-#: .\templates\index_EN.html:170
+#: .\templates\index_EN.html:190
 msgid "Address:"
 msgstr "العنوان :"
 
-#: .\templates\index_EN.html:176
+#: .\templates\index_EN.html:196
 msgid "E-Mail::"
 msgstr "البريد الالكتروني : "
 
-#: .\templates\index_EN.html:185
+#: .\templates\index_EN.html:205
 msgid "Client Source"
 msgstr "مصدر العميل :"
 
-#: .\templates\index_EN.html:193
+#: .\templates\index_EN.html:213
 msgid "Direct"
 msgstr "مباشر :"
 
-#: .\templates\index_EN.html:202
+#: .\templates\index_EN.html:222
 msgid "Indirect"
 msgstr "غير مباشر :"
 
-#: .\templates\index_EN.html:211
+#: .\templates\index_EN.html:231
+msgid "Ambassador"
+msgstr "سفير"
+
+#: .\templates\index_EN.html:240
 msgid "Personal"
 msgstr "شخصي :"
 
-#: .\templates\index_EN.html:219
+#: .\templates\index_EN.html:249
+#, fuzzy
+#| msgid "Broker Company :"
+msgid "Broker company"
+msgstr "شكرة التسويق العقارية :"
+
+#: .\templates\index_EN.html:251 .\templates\index_EN.html:307
+#: .\templates\index_EN.html:329 .\templates\index_EN.html:365
+msgid "select option"
+msgstr ""
+
+#: .\templates\index_EN.html:260
 msgid "Broker Company :"
 msgstr "شكرة التسويق العقارية :"
 
-#: .\templates\index_EN.html:226
-msgid "Dev Sales :"
-msgstr "مسئول مبيعات المطور"
+#: .\templates\index_EN.html:268
+#, fuzzy
+#| msgid "Broker Company :"
+msgid "Broker Company id :"
+msgstr "شكرة التسويق العقارية :"
 
-#: .\templates\index_EN.html:232
-msgid "Broker Sales :"
-msgstr "مسئول مبيعات شركة التسويق العقاري :"
+#: .\templates\index_EN.html:276
+msgid "Ambassador Name :"
+msgstr "اسم السفير"
 
-#: .\templates\index_EN.html:238
+#: .\templates\index_EN.html:282
+msgid "Ambassador ID :"
+msgstr "رقم البطاقة للسفير"
+
+#: .\templates\index_EN.html:288
+msgid "Ambassador email :"
+msgstr "ايميل السفير"
+
+#: .\templates\index_EN.html:294
+msgid "Ambassador phone :"
+msgstr "موبايل السفير"
+
+#: .\templates\index_EN.html:305 .\templates\index_EN.html:316
 msgid "Dev Sales Manager :"
 msgstr "مدير مبيعات المطور"
 
-#: .\templates\index_EN.html:244
+#: .\templates\index_EN.html:327 .\templates\index_EN.html:339
+msgid "Dev Sales :"
+msgstr "مسئول مبيعات المطور"
+
+#: .\templates\index_EN.html:348
+msgid "Broker Sales :"
+msgstr "مسئول مبيعات شركة التسويق العقاري :"
+
+#: .\templates\index_EN.html:354
+#, fuzzy
+#| msgid "Broker Sales :"
+msgid "Broker id :"
+msgstr "مسئول مبيعات شركة التسويق العقاري :"
+
+#: .\templates\index_EN.html:363
 msgid "Branch"
 msgstr "الفرع"
 
-#: .\templates\index_EN.html:246
+#: .\templates\index_EN.html:366
 msgid "AL-tajamou"
 msgstr "التجمع"
 
-#: .\templates\index_EN.html:247
+#: .\templates\index_EN.html:367
 msgid "Maadi"
 msgstr "المعادي"
 
-#: .\templates\index_EN.html:248
+#: .\templates\index_EN.html:368
 msgid "Homes Expo Alex"
 msgstr ""
 
-#: .\templates\index_EN.html:262
+#: .\templates\index_EN.html:369
+msgid "Dusit Expo"
+msgstr ""
+
+#: .\templates\index_EN.html:370
+msgid "kempinski hotel"
+msgstr ""
+
+#: .\templates\index_EN.html:384
 msgid "Type Of Unit"
 msgstr "نوع الوحدة"
 
-#: .\templates\index_EN.html:271
+#: .\templates\index_EN.html:393
 msgid "Studio"
 msgstr "ستوديو :"
 
-#: .\templates\index_EN.html:280
+#: .\templates\index_EN.html:402
 msgid "One Bedroom Chalet"
 msgstr "غرفة 1 :"
 
-#: .\templates\index_EN.html:289
+#: .\templates\index_EN.html:411
 msgid "Two Bedroom Chalet"
 msgstr "غرفة 2:"
 
-#: .\templates\index_EN.html:298
+#: .\templates\index_EN.html:420
 msgid "Three Bedroom Chalet"
 msgstr "3 غرفة :"
 
-#: .\templates\index_EN.html:307
+#: .\templates\index_EN.html:429
 msgid "Duplex"
 msgstr "دوبلكس :"
 
-#: .\templates\index_EN.html:316
+#: .\templates\index_EN.html:438
 msgid "Twin House"
 msgstr "توين هوس"
 
-#: .\templates\index_EN.html:326
+#: .\templates\index_EN.html:448
 msgid "Floor"
 msgstr "الدور :"
 
-#: .\templates\index_EN.html:334
+#: .\templates\index_EN.html:456
 msgid "Ground"
 msgstr "ارضي :"
 
-#: .\templates\index_EN.html:343
+#: .\templates\index_EN.html:465
 msgid "Typical"
 msgstr "متكرر :"
 
-#: .\templates\index_EN.html:356
+#: .\templates\index_EN.html:478
 msgid "Add New unit"
 msgstr "اضافة وحدة جديده"
 
-#: .\templates\index_EN.html:363
-msgid "payment Methiods"
+#: .\templates\index_EN.html:485
+msgid "Payment Methods"
 msgstr "طريقة الدفع"
 
-#: .\templates\index_EN.html:370
+#: .\templates\index_EN.html:492
 msgid "Amount"
 msgstr "القيمة"
 
-#: .\templates\index_EN.html:377
+#: .\templates\index_EN.html:499
+msgid "Custom Amount"
+msgstr "تعديل المبلغ"
+
+#: .\templates\index_EN.html:500
+msgid "Custom Amount (optional)"
+msgstr "(اختياري)تعديل المبلغ"
+
+#: .\templates\index_EN.html:506
 msgid "Bank Transfer"
 msgstr "تحويل بنكي"
 
-#: .\templates\index_EN.html:386
-msgid "checks"
+#: .\templates\index_EN.html:515
+msgid "Credit Card"
+msgstr "كريديت كارت"
+
+#: .\templates\index_EN.html:524
+msgid "Checks"
 msgstr "شيكات"
 
-#: .\templates\index_EN.html:395
-msgid "cash"
+#: .\templates\index_EN.html:533
+msgid "Cash"
 msgstr "كاش"
 
-#: .\templates\index_EN.html:409
+#: .\templates\index_EN.html:547
 msgid "The Conditions"
 msgstr "الشروط"
 
-#: .\templates\index_EN.html:414
+#: .\templates\index_EN.html:552
 msgid ""
 "1- The client is required to visit the company`s premises within 3 days from "
 "the project launch date to sign the contract and receive it post-agreement, "
@@ -1432,7 +1497,7 @@ msgstr ""
 "1- يلتزم العميل بالحضور الى مقر الشركة خلال 3 ايام من تاريخ اطلاق المشروع "
 "لتوقيع على العقد واستلامة بعد التعاقد طبقا للوائح الشركة وسداد باقى الثمن"
 
-#: .\templates\index_EN.html:415
+#: .\templates\index_EN.html:553
 msgid ""
 "2- This reservation will be forfeited if the due amounts are not paid within "
 "the period specified in the previous clause without the need for notice, "
@@ -1444,31 +1509,34 @@ msgstr ""
 "بالبند السابق دون الحاجة الى تنبية او انذار او حكم قضائى ويعتبر هذا الحجز "
 "كأن لم يكن ويحق له استرداد دفعة الحجز المحفوظة."
 
-#: .\templates\index_EN.html:416
+#: .\templates\index_EN.html:554
 msgid ""
 "3- The client is responsible for the accuracy of the information provided "
 "and documented by them."
 msgstr "3- العميل مسؤل عن صحة البيانات الخاصة الواردة والمحررة بمعرفته"
 
-#: .\templates\index_EN.html:424
+#: .\templates\index_EN.html:562
 msgid "Operation Department"
 msgstr "ادارة التشغيل :"
 
-#: .\templates\index_EN.html:430
+#: .\templates\index_EN.html:568
 msgid "Financial Departmnt"
 msgstr "الادارة المالية :"
 
-#: .\templates\index_EN.html:436
+#: .\templates\index_EN.html:574
 msgid "Sales Department"
 msgstr "ادارة المبيعات"
 
-#: .\templates\index_EN.html:442
+#: .\templates\index_EN.html:580
 msgid "Client"
 msgstr "العميل"
 
-#: .\templates\index_EN.html:450
+#: .\templates\index_EN.html:588
 msgid "Send Order"
 msgstr "ارسال الطلب"
+
+#~ msgid "cash"
+#~ msgstr "كاش"
 
 #~ msgid "Dowenlaod as PDF File"
 #~ msgstr "تحميل بصيغة pdf"
