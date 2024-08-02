@@ -165,7 +165,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "related_modal_active": False,
     "custom_css": None,
-    "custom_js": 'js/admin.js',
+    "custom_js": 'assets/js/admin.js',
     "show_collapse": False,
     "open_my_account": False,
     "open_support": False,

@@ -7,6 +7,9 @@ from django.utils.html import format_html
 from django.db.models import Count
 from django.http import HttpResponse
 from .utils import render_to_pdf
+from .resources import OrdersResource
+#import export using django-import-export
+from import_export.admin import ImportExportModelAdmin
 
 class CustomAdminSite(admin.AdminSite):
 
@@ -18,15 +21,27 @@ class CustomAdminSite(admin.AdminSite):
         return custom_urls + urls
 
     def statistics_view(self, request):
-        units_data = Units.objects.values('unit_type').annotate(count=Count('unit_type'))
-        orders_data = Orders.objects.extra({'day': "strftime('%%Y-%%m-%%d', date)"}).values('day').annotate(count=Count('id')).order_by('day')
-        branch_data = Orders.objects.values('branch').annotate(count=Count('id'))
-        direct_indirect_data = Orders.objects.values('clientSource').annotate(count=Count('id'))
-        dev_sales_manager_data = Orders.objects.values('dev_sales_manager').annotate(count=Count('id'))
-        total_units=Units.objects.all().count()
+        # Get units assigned to orders
+        assigned_units = Units.objects.filter(orders__isnull=False).values('unit_type').annotate(count=Count('unit_type'))
+
+        # Orders data per day
+        orders_data = Orders.objects.extra({'day': "strftime('%%Y-%%m-%%d', date)"}).values('day').annotate(count=Count('units')).order_by('day')
+
+        # Branch data
+        branch_data = Orders.objects.values('branch').annotate(count=Count('units__id'))
+
+        # Direct vs Indirect data
+        direct_indirect_data = Orders.objects.values('clientSource').annotate(count=Count('units__id'))
+
+        # Dev Sales Manager data
+        dev_sales_manager_data = Orders.objects.values('dev_sales_manager').annotate(count=Count('units__id'))
+
+        # Total units from orders
+        total_units = Units.objects.filter(orders__isnull=False).count()
+
         context = dict(
             self.each_context(request),
-            units_data=list(units_data),
+            units_data=list(assigned_units),
             orders_data=list(orders_data),
             branch_data=list(branch_data),
             direct_indirect_data=list(direct_indirect_data),
@@ -41,8 +56,8 @@ admin_site = CustomAdminSite(name='custom_admin')
 admin_site = CustomAdminSite(name='custom_admin')
 
 @admin.register(Orders, site=admin_site)
-class OrdersAdmin(admin.ModelAdmin):
-    
+class OrdersAdmin(ImportExportModelAdmin):
+    resource_class=OrdersResource
     actions = ["print_orders"]
 
     def print_orders(self, request, queryset):
@@ -58,9 +73,19 @@ class OrdersAdmin(admin.ModelAdmin):
     
     
     list_display = (
-        'customer_num', 'name', 'date', 'phone', 'email', 
-        'clientSource', 'broker_company', 'dev_sales', 'broker_sales', 'dev_sales_manager', 'units_details'
+        'user_details', 
+        'clientSource', 'broker_company', 'dev_sales', 'broker_sales', 'dev_sales_manager','branch', 'units_details'
     )
+    #filter by client source , date
+    list_filter = ('clientSource', 'date')
+    
+    
+    def user_details(self, obj):
+        #'customer_num', 'name', 'date', 'phone', 'email',
+        html = '<div>'
+        html += f'<strong> customer num: {obj.customer_num}</strong><br><strong> date: {obj.date}</strong><br><strong> name: {obj.name}</strong><br><strong>phone: {obj.phone}</strong><br><strong> email: {obj.email}</strong>'
+        html += '</div>'
+        return format_html(html)
     
     def units_details(self, obj):
         units = obj.units.all()
@@ -73,6 +98,9 @@ class OrdersAdmin(admin.ModelAdmin):
     units_details.short_description = "Units"
 
     search_fields = ('name', 'phone', 'email', 'clientSource', 'broker_company')
+
+
+
 
 @admin.register(Units, site=admin_site)
 class UnitsAdmin(admin.ModelAdmin):

@@ -41,6 +41,7 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <script src="{% static 'assets/js/jquery.min.js' %}"></script>
 
 <script src="{% static 'assets/js/popper.min.js' %}"></script>
@@ -70,12 +71,15 @@
 
     // Units Status Chart
     var ctx1 = document.getElementById('unitsStatusChart').getContext('2d');
+    var totalUnits = unitCounts.reduce((a, b) => a + b, 0); // Calculate the total units
     var unitsStatusChart = new Chart(ctx1, {
         type: 'bar',
         data: {
             labels: unitTypes,
             datasets: [{
-                label: 'Units Status',
+                // label : 'Units Status -> Total Units: ' + totalUnits,
+                label: `Units Status: ${totalUnits}`,
+               
                 data: unitCounts,
                 backgroundColor: 'orange',
                 borderColor: 'orange',
@@ -87,18 +91,31 @@
                 y: {
                     beginAtZero: true
                 }
+            },
+            plugins: {
+                datalabels: {
+                    display: true,
+                    color: 'black',
+                    anchor: 'center',
+                    align: 'center',
+                    formatter: function(value, context) {
+                        return value;
+                    }
+                }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
 
     // Direct vs Indirect Chart
     var ctx2 = document.getElementById('directIndirectChart').getContext('2d');
+    var total_client_sources = clientCounts.reduce((a, b) => a + b, 0);
     var directIndirectChart = new Chart(ctx2, {
         type: 'bar',
         data: {
             labels: clientSources,
             datasets: [{
-                label: 'Direct vs Indirect',
+                label: `Direct vs Indirect: ${total_client_sources}`,
                 data: clientCounts,
                 backgroundColor: 'orange',
                 borderColor: 'orange',
@@ -110,18 +127,31 @@
                 y: {
                     beginAtZero: true
                 }
+            },
+            plugins: {
+                datalabels: {
+                    display: true,
+                    color: 'black',
+                    anchor: 'center',
+                    align: 'center',
+                    formatter: function(value, context) {
+                        return value;
+                    }
+                }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
 
     // Branch Chart
     var ctx3 = document.getElementById('branchChart').getContext('2d');
+    var total_branches = branchCounts.reduce((a, b) => a + b, 0);
     var branchChart = new Chart(ctx3, {
         type: 'bar',
         data: {
             labels: branches,
             datasets: [{
-                label: 'Number of Units by Branch',
+                label: `Number or Units by Branch: ${total_branches}`,
                 data: branchCounts,
                 backgroundColor: 'lightblue',
                 borderColor: 'lightblue',
@@ -133,18 +163,31 @@
                 y: {
                     beginAtZero: true
                 }
+            },
+            plugins: {
+                datalabels: {
+                    display: true,
+                    color: 'black',
+                    anchor: 'center',
+                    align: 'center',
+                    formatter: function(value, context) {
+                        return value;
+                    }
+                }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
 
     // Dev Sales Manager Chart
     var ctx4 = document.getElementById('devSalesManagerChart').getContext('2d');
+    var total_dev_sales_manager = devSalesManagerCounts.reduce((a, b) => a + b, 0);
     var devSalesManagerChart = new Chart(ctx4, {
         type: 'bar',
         data: {
             labels: devSalesManagers,
             datasets: [{
-                label: 'Dev Sales Manager',
+                label: `Number or Units by Dev Sales Manager: ${total_dev_sales_manager}`,
                 data: devSalesManagerCounts,
                 backgroundColor: 'lightblue',
                 borderColor: 'lightblue',
@@ -156,8 +199,20 @@
                 y: {
                     beginAtZero: true
                 }
+            },
+            plugins: {
+                datalabels: {
+                    display: true,
+                    color: 'black',
+                    anchor: 'center',
+                    align: 'center',
+                    formatter: function(value, context) {
+                        return value;
+                    }
+                }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
 </script>
 
