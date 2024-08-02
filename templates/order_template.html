@@ -1,0 +1,575 @@
+<!-- templates/order_template.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Form</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta accesskey="Shopping, Retail, Food Delivery, Cost Reductions, Wholesaler, activity tracker, and profits- e-Payment- Financial Solutions" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/boxicons.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}" />
+
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/nice-select.min.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'assets/select2/css/select2.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/odometer.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/StyleForm.css' %}" />
+    {% if LANGUAGE_CODE == 'en' %}
+    <link rel="stylesheet" href="{% static 'assets/css/StyleForm_en.css' %}" />
+    {% endif %}
+
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+    <title>Tharaa Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+    <style>
+        .language-switcher {
+            display: inline-block;
+            position: relative;
+        }
+        .language-switcher select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding: 0 30px 0 10px;
+            margin: 0;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            cursor: inherit;
+            line-height: inherit;
+            outline: none;
+        }
+        
+        .language-icon {
+            margin-right: 5px;
+        }
+        .fromTLD{
+          width: 60%;
+          margin: auto;
+        }
+        .fromTLD .FormPage{
+          width: 100% !important;
+          margin-top: 0;
+        }
+
+        @media(max-width:768px){
+          .fromTLD{
+          width: 100%;
+        }
+        }
+        @media print {
+          /* .fromTLD {
+            width: 210mm; 
+            
+        } */
+        .fromTLD{
+          width: 100%;
+        }
+        .fromTLD .FormPage{
+          width: 100% !important;
+        }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .fromTLD {
+                width: 210mm;
+                margin: 0;
+                padding: 0;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fromTLD">
+        <div class="FormPage" style="background-image: url({% static 'assets/img/patrn1.png' %})">
+          <div class="logo">
+            <img src="{% static 'assets/img/Logo.png' %}" />
+          </div>
+          <div class="FormContent">
+            <div class="MainTitle">
+              <h2><span>{% trans 'EOI' %}</span><img src="{% static 'assets/img/glee.png' %}" /></h2>
+              <div class="row" style="justify-content: center">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Date:' %}</label>
+                    <input type="date" class="inputtext" name="date" readonly value="" id="dateInput" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Customer Num:' %}</label>
+                    <input type="text" name="customer_num"  id="customer_num" class="inputtext" value="{{sympol}}{{customer_num}}" disabled />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sectitle">
+                  <h2>{% trans 'Customer Data' %}</h2>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Name :' %}</label>
+                      <input type="text" name="name" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'BirthDay :' %}</label>
+                      <input type="date" name="birthday" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'National ID / Passport:' %}</label>
+                      <input type="text" name="national_id" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Phone:' %}</label>
+                      <input type="text" name="phone" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Mobile:' %}</label>
+                      <input type="text" name="mobile" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Occupation:' %}</label>
+                      <input type="text" name="occupation" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Address:' %}</label>
+                      <input type="text" name="address" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'E-Mail::' %}</label>
+                      <input type="email" name="email" class="inputtext" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sectitle mb-2">
+                  <h2>{% trans 'Client Source' %}</h2>
+                </div>
+              </div>
+              <div class="col-lg-12 mb-3">
+                <div class="row" style="margin: 0 -15px; justify-content: center">
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Direct' %}</span>
+                        <input type="radio" name="clientSource" value="direct" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Indirect' %}</span>
+                        <input type="radio" name="clientSource" value="Indirect" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Ambassador' %}</span>
+                        <input type="radio" name="clientSource" value="Ambassador" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Personal' %}</span>
+                        <input type="radio" name="clientSource" value="Personal" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div id="broker_section" >
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="formgroup">
+                          <label>{% trans 'Broker company' %} :</label>
+                          <select class="inputtext select2" name="broker_company" id="broker_company_select">
+                              <option vlaue="" selected>{% trans 'select option' %}</option>
+                              {% for broker in thraa %}
+                              <option vlaue="{{broker.broker_company}}">{{broker.broker_company}}</option>
+                              {% endfor %}
+                          </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-none" >
+                      <div class="formgroup">
+                        <label>{% trans 'Broker Company :' %}</label>
+                        <input type="text" name="broker_company" id="broker_company_input" class="inputtext" />
+                      </div>
+                    </div>
+                    <!------------------------------------->
+                    
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                      <div class="formgroup">
+                        <label>{% trans 'Broker Company id :' %}</label>
+                        <input type="text" name="broker_company_id" id="broker_company_id" disabled value="{{broker_company_id}}" class="inputtext" />
+                      </div>
+                    </div>
+                  </div>
+                  <div id="ambassador_section">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="formgroup">
+                        <label>{% trans 'Ambassador Name :' %}</label>
+                        <input type="text" name="ambassador_name" id="ambassador_name" class="inputtext" />
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="formgroup">
+                        <label>{% trans 'Ambassador ID :' %}</label>
+                        <input type="text" name="ambassador_id" id="ambassador_id" class="inputtext" />
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="formgroup">
+                        <label>{% trans 'Ambassador email :' %}</label>
+                        <input type="text" name="ambassador_email" id="ambassador_email" class="inputtext" />
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="formgroup">
+                        <label>{% trans 'Ambassador phone :' %}</label>
+                        <input type="text" name="ambassador_phone" id="ambassador_phone" class="inputtext" />
+                      </div>
+                    </div>
+                    
+                  </div>
+  
+  
+                <!------------------------------------->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                      <label>{% trans 'Dev Sales Manager :' %} :</label>
+                      <select class="inputtext select2" name="dev_sales_manager" id="dev_sales_manager_select">
+                        <option value="" selected>{% trans 'select option' %}</option>
+                        {% for dev_sales_manager in unique_dev_sale_manager %}
+                        <option vlaue="{{dev_sales_manager}}">{{dev_sales_manager}}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-none">
+                    <div class="formgroup">
+                      <label>{% trans 'Dev Sales Manager :' %}</label>
+                      <input type="text" name="dev_sales_manager" id="dev_sales_manager_input" class="inputtext" disabled />
+                    </div>
+                  </div>
+  
+  
+  
+  
+                  <!------------------------------------->
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                        <label>{% trans 'Dev Sales :' %} :</label>
+                        <select class="inputtext select2" name="dev_sales" id="dev_sales_select">
+                          <option value="" selected>{% trans 'select option' %}</option>
+                          
+                      </select>
+                    </div>
+                </div>
+  
+  
+  
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-none" >
+                    <div class="formgroup">
+                      <label>{% trans 'Dev Sales :' %}</label>
+                      <input type="text" name="dev_sales" id="dev_sales_input" class="inputtext" />
+                    </div>
+                  </div>
+  
+  
+                  <div id="broker_sales_section2"> 
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Broker Sales :' %}</label>
+                      <input type="text" name="broker_sales" id="broker_sales_input" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Broker id :' %}</label>
+                      <input type="text" name="broker_id" id="broker_id_input" class="inputtext" />
+                    </div>
+                  </div>
+                  </div>
+                  
+                  
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                        <label>{% trans 'Branch' %} :</label>
+                        <select class="inputtext select2" name="branch">
+                          <option vlaue="" selected>{% trans 'select option' %}</option>
+                            <option vlaue="{% trans 'AL-tajamou' %}">{% trans 'AL-tajamou' %}</option>
+                            <option vlaue="{% trans 'Maadi' %}">{% trans 'Maadi' %}</option>
+                            <option vlaue="{% trans 'Homes Expo Alex' %}">{% trans 'Homes Expo Alex' %}</option>
+                            <option vlaue="{% trans 'Dusit Expo' %}">{% trans 'Dusit Expo' %}</option>
+                            <option vlaue="{% trans 'kempinski hotel' %}">{% trans 'kempinski hotel' %}</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-12">
+                <div class="UnitesGroup">
+                  <div class="ItemssNewUints">
+                    <div class="UnitesItem">
+                      <button class="DeleteUnitt" type="button">Delete</button>
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <div class="sectitle mb-2">
+                            <h2>{% trans 'Type Of Unit' %} ({{unit_sympol}}<span id="number_of_units">{{unit_num}}</span>)</h2>
+                            <input type="text" name="number_of_units" id="number_of_units_input" class="inputtext" value="15255" style="display:none" />
+                          </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                          <div class="row" style="margin: 0 -15px; justify-content: center">
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'Studio' %}</span>
+                                  <input type="radio" name="type_of_unit" value="studio" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'One Bedroom Chalet' %}</span>
+                                  <input type="radio" name="type_of_unit" value="one_bedroom_chalet" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'Two Bedroom Chalet' %}</span>
+                                  <input type="radio" name="type_of_unit" value="two_bedroom_chalet" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'Three Bedroom Chalet' %}</span>
+                                  <input type="radio" name="type_of_unit" value="three_bedroom_chalet" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'Duplex' %}</span>
+                                  <input type="radio" name="type_of_unit" value="duplex" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'Twin House' %}</span>
+                                  <input type="radio" name="type_of_unit" value="twin_house" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <div class="sectitle mb-2">
+                            <h2>{% trans 'Floor' %}</h2>
+                          </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                          <div class="row" style="margin: 0 -15px; justify-content: center">
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'Ground' %}</span>
+                                  <input type="radio" name="Floor" value="ground" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 p-0">
+                              <div class="form-check-inline">
+                                <label class="customradio">
+                                  <span class="radiotextsty">{% trans 'Typical' %}</span>
+                                  <input type="radio" name="Floor" value="typical" />
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="AddNeUnit">
+                    <button class="addNewUnitess" type="button">{% trans 'Add New unit' %}</button>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sectitle mt-3">
+                  <h2>{% trans 'Payment Methods' %}</h2>
+                </div>
+              </div>
+              <div class="col-lg-12 mb-3">
+                <div class="row" style="margin: 0 -15px; justify-content: center">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="formgroup" >
+                      <label>{% trans 'Amount' %}</label>
+                      <input type="number" name="amount" id="amount" class="inputtext" disabled value="50000" />
+                      
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="formgroup" style="width: ">
+                      <label>{% trans 'Custom Amount' %}</label>
+                      <input type="number" name="editamount" id="editamount"  class="inputtext notused" placeholder="{% trans 'Custom Amount (optional)' %}" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Bank Transfer' %}</span>
+                        <input type="radio" name="payment" value="bank_trnasfer"/>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Credit Card' %}</span>
+                        <input type="radio" name="payment" value="credit_card"/>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Checks' %}</span>
+                        <input type="radio" name="payment" value="checks" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 p-0">
+                    <div class="form-check-inline">
+                      <label class="customradio">
+                        <span class="radiotextsty">{% trans 'Cash' %}</span>
+                        <input type="radio" name="payment" value="cash" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!--------------------------------------------------------------------->
+  
+  
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sectitle mt-1">
+                  <h2>{% trans 'The Conditions' %}</h2>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="Shoroot">
+                  <p>{% trans '1- The client is required to visit the company`s premises within 3 days from the project launch date to sign the contract and receive it post-agreement, in accordance with the company`s regulations, and to pay the remaining amount.' %}</p>
+                  <p>{% trans '2- This reservation will be forfeited if the due amounts are not paid within the period specified in the previous clause without the need for notice, warning, or court judgment. The reservation will be considered null and void, and the client will have the right to reclaim the reserved booking deposit.' %}</p>
+                  <p>{% trans '3- The client is responsible for the accuracy of the information provided and documented by them.' %}</p>
+                </div>
+              </div>
+  
+              <div class="col-lg-12 mt-5">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="formgroup d-block text-center">
+                      <label>{% trans 'Operation Department' %}</label>
+                      <input type="text" readonly class="inputtext d-block" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="formgroup d-block text-center">
+                      <label>{% trans 'Financial Departmnt' %}</label>
+                      <input type="text" readonly class="inputtext d-block" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="formgroup d-block text-center">
+                      <label>{% trans 'Sales Department' %}</label>
+                      <input type="text" readonly class="inputtext d-block" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="formgroup d-block text-center">
+                      <label>{% trans 'Client' %}</label>
+                      <input type="text" readonly class="inputtext d-block" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+</body>
+</html>

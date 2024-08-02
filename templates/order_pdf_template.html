@@ -1,0 +1,692 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta accesskey="Shopping, Retail, Food Delivery, Cost Reductions, Wholesaler, activity tracker, and profits- e-Payment- Financial Solutions" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/boxicons.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}" />
+
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/nice-select.min.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'assets/select2/css/select2.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/odometer.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/StyleForm.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/StyleForm_en.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+    <title>{% trans 'Tharaa Form' %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+    <style>
+        .language-switcher {
+            display: inline-block;
+            position: relative;
+        }
+        .language-switcher select {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding: 0 30px 0 10px;
+            margin: 0;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            cursor: inherit;
+            line-height: inherit;
+            outline: none;
+        }
+        
+        .language-icon {
+            margin-right: 5px;
+        }
+        .fromTLD{
+          width: 60%;
+          margin: auto;
+        }
+        .fromTLD .FormPage{
+          width: 100% !important;
+          margin-top: 0;
+        }
+
+        @media(max-width:768px){
+          .fromTLD{
+          width: 100%;
+        }
+        }
+        @media print {
+          /* .fromTLD {
+            width: 210mm; 
+            
+        } */
+        .fromTLD{
+          width: 100%;
+        }
+        .fromTLD .FormPage{
+          width: 100% !important;
+        }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .fromTLD {
+                width: 210mm;
+                margin: 0;
+                padding: 0;
+
+            }
+        }
+    </style>
+</head>
+
+  <body>
+
+    {% for order in order %}
+    <form method="post" id="sendForm">
+    <div class="fromTLD">
+      <div class="FormPage" style="background-image: url({% static 'assets/img/patrn1.png' %})">
+        <div class="logo">
+          <img src="{% static 'assets/img/Logo.png' %}" />
+        </div>
+        <div class="FormContent">
+          <div class="MainTitle">
+            <h2><span>{% trans 'EOI' %}</span><img src="{% static 'assets/img/glee.png' %}" /></h2>
+            <div class="row" style="justify-content: center">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="formgroup">
+                  <label>{% trans 'Date:' %}</label>
+                  <input readonly type="text" class="inputtext" name="date" value="{{order.date}}" />
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="formgroup">
+                  <label>{% trans 'Customer Num:' %}</label>
+                  <input readonly type="text" name="customer_num"  id="customer_num" class="inputtext" value="{{order.customer_num}}" disabled />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle">
+                <h2>{% trans 'Customer Data' %}</h2>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Name :' %}</label>
+                    <input readonly type="text" name="name" class="inputtext" value="{{order.name}}" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'BirthDay :' %}</label>
+                    <input readonly type="date" name="birthday" class="inputtext" value="{{order.birthday}}" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'National ID / Passport:' %}</label>
+                    <input readonly type="text" name="national_id" class="inputtext" value="{{order.national_id}}" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Phone:' %}</label>
+                    <input readonly type="text" name="phone" class="inputtext" value="{{order.phone}}" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Mobile:' %}</label>
+                    <input readonly type="text" name="mobile" class="inputtext" value="{{order.mobile}}"/>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Occupation:' %}</label>
+                    <input readonly type="text" name="occupation" class="inputtext" value="{{order.occupation}}"/>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Address:' %}</label>
+                    <input readonly type="text" name="address" class="inputtext"   value="{{order.address}}"/>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'E-Mail::' %}</label>
+                    <input readonly type="email" name="email" class="inputtext"  value="{{order.email}}"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle mb-2">
+                <h2>{% trans 'Client Source' %}</h2>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-3">
+              <div class="row" style="margin: 0 -15px; justify-content: center">
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Direct' %}</span>
+                        {% if order.clientSource == 'direct' %}
+                      <input readonly type="radio" name="clientSource" checked value="direct" />
+                        {% else %}
+                      <input readonly type="radio" name="clientSource" value="direct" />
+                        {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Indirect' %}</span>
+                        {% if order.clientSource == 'Indirect' %}
+                      <input readonly type="radio" name="clientSource" checked value="Indirect" />
+                        {% else %}
+                      <input readonly type="radio" name="clientSource" value="Indirect" />
+                        {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                        
+                      <span class="radiotextsty">{% trans 'Ambassador' %}</span>
+                        {% if order.clientSource == 'Ambassador' %}
+                      <input readonly type="radio" name="clientSource" checked value="Ambassador" />
+                        {% else %}
+                      <input readonly type="radio" name="clientSource" value="Ambassador" />
+                        {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Personal' %}</span>
+                        {% if order.clientSource == 'Personal' %}
+                      <input readonly type="radio" name="clientSource" checked value="Personal" />
+                        {% else %}
+                      <input readonly type="radio" name="clientSource" value="Personal" />
+                        {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div id="broker_section" >
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                        <label>{% trans 'Broker company' %} :</label>
+                        <select class="inputtext select2" name="broker_company" id="broker_company_select">
+                            <option vlaue="" selected>{{order.broker_company}}</option>
+                        </select>
+                    </div>
+                  </div>
+                  
+                  <!------------------------------------->
+                  
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                    <div class="formgroup">
+                      <label>{% trans 'Broker Company id :' %}</label>
+                      <input readonly type="text" name="broker_company_id" id="broker_company_id" disabled value="{{order.broker_company_id}}" class="inputtext" />
+                    </div>
+                  </div>
+                </div>
+                <div id="ambassador_section">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador Name :' %}</label>
+                      <input readonly type="text" value="{{order.ambassador_name}}" id="ambassador_name" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador ID :' %}</label>
+                      <input readonly type="text" value="{{order.ambassador_id}}" id="ambassador_id" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador email :' %}</label>
+                      <input readonly type="text" value="{{order.ambassador_email}}" id="ambassador_email" class="inputtext" />
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="formgroup">
+                      <label>{% trans 'Ambassador phone :' %}</label>
+                      <input readonly type="text" value="{{order.ambassador_phone}}" id="ambassador_phone" class="inputtext" />
+                    </div>
+                  </div>
+                  
+                </div>
+
+
+              <!------------------------------------->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="formgroup">
+                    <label>{% trans 'Dev Sales Manager :' %} :</label>
+                    <select class="inputtext select2" name="dev_sales_manager" id="dev_sales_manager_select">
+                        <option value="" selected>{{order.dev_sales_manager}}</option>
+                  </select>
+                </div>
+              </div>
+                
+
+
+
+
+                <!------------------------------------->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                      <label>{% trans 'Dev Sales :' %} :</label>
+                      <select class="inputtext select2" name="dev_sales" id="dev_sales_select">
+                          <option value="" selected>{{order.dev_sales}}</option>                        
+                    </select>
+                  </div>
+              </div>
+
+
+
+
+
+
+                <div id="broker_sales_section2"> 
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Broker Sales :' %}</label>
+                    <input readonly type="text" value="{{order.broker_sales}}" id="broker_sales_input" class="inputtext" />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                    <label>{% trans 'Broker id :' %}</label>
+                    <input readonly type="text" value="{{order.broker_id}}" id="broker_id_input" class="inputtext" />
+                  </div>
+                </div>
+                </div>
+                
+                
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup">
+                      <label>{% trans 'Branch' %} :</label>
+                      <select class="inputtext select2" name="branch">
+                          <option value="" selected>{{order.branch}}</option>
+                    </select>
+                  </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="UnitesGroup">
+                {% for unit in order.units.all %}
+                <div class="ItemssNewUints">
+                  <div class="UnitesItem">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sectitle mb-2">
+                          <h2>{% trans 'Type Of Unit' %} (<span id="number_of_units">{{unit.number_of_units}}</span>)</h2>
+                          <input readonly type="text" name="number_of_units" id="number_of_units_input" class="inputtext" value="15255" style="display:none" />
+                        </div>
+                      </div>
+                      <div class="col-lg-12 mb-3">
+                        <div class="row" style="margin: 0 -15px; justify-content: center">
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'Studio' %}</span>
+                                {% if unit.unit_type == 'studio' %}
+                                <input readonly type="radio" checked name="type_of_unit" value="studio" />
+                                {% else %}
+                                <input readonly type="radio" name="type_of_unit" value="studio" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'One Bedroom Chalet' %}</span>
+                                {% if unit.unit_type == 'one_bedroom_chalet' %}
+                                <input readonly type="radio" checked name="type_of_unit" value="one_bedroom_chalet" />
+                                {% else %}
+                                <input readonly type="radio" name="type_of_unit" value="one_bedroom_chalet" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'Two Bedroom Chalet' %}</span>
+                                {% if unit.unit_type == 'two_bedroom_chalet' %}
+                                <input readonly type="radio" checked name="type_of_unit" value="two_bedroom_chalet" />
+                                {% else %}
+
+                                <input readonly type="radio" name="type_of_unit" value="two_bedroom_chalet" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'Three Bedroom Chalet' %}</span>
+                                {% if unit.unit_type == 'three_bedroom_chalet' %}
+                                <input readonly type="radio" checked name="type_of_unit" value="three_bedroom_chalet" />
+                                {% else %}
+                                <input readonly type="radio" name="type_of_unit" value="three_bedroom_chalet" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'Duplex' %}</span>
+                                {% if unit.unit_type == 'duplex' %}
+                                <input readonly type="radio" checked name="type_of_unit" value="duplex" />
+                                {% else %}
+                                <input readonly type="radio" name="type_of_unit" value="duplex" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'Twin House' %}</span>
+                                {% if unit.unit_type == 'twin_house' %}
+                                <input readonly checked type="radio" name="type_of_unit" value="twin_house" />
+                                {% else %}
+                                <input readonly type="radio" name="type_of_unit" value="twin_house" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sectitle mb-2">
+                          <h2>{% trans 'Floor' %}</h2>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 mb-3">
+                        <div class="row" style="margin: 0 -15px; justify-content: center">
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'Ground' %}</span>
+                                {% if unit.floor == 'ground' %}
+                                <input readonly type="radio" checked name="Floor" value="ground" />
+                                {% else %}
+                                <input readonly type="radio" name="Floor" value="ground" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 p-0">
+                            <div class="form-check-inline">
+                              <label class="customradio">
+                                <span class="radiotextsty">{% trans 'Typical' %}</span>
+                                {% if unit.floor == 'typical' %}
+                                <input readonly type="radio" checked name="Floor" value="typical" />
+                                {% else %}
+                                <input readonly type="radio" name="Floor" value="typical" />
+                                {% endif %}
+                                <span class="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+                
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle mt-3">
+                <h2>{% trans 'Payment Methods' %}</h2>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-3">
+              <div class="row" style="margin: 0 -15px; justify-content: center">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="formgroup" style=" width: 250px;" >
+                    <label>{% trans 'Amount' %}</label>
+                    <input readonly type="number" name="amount" id="amount" class="inputtext" disabled value="{{order.amount}}" />
+                    
+                  </div>
+                </div>
+                
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Bank Transfer' %}</span>
+                      {% if order.payment_method == 'bank_trnasfer' %}
+                      <input readonly type="radio" name="payment" value="bank_trnasfer" checked />
+                      {% else %}
+                      <input readonly type="radio" name="payment" value="bank_trnasfer"/>
+                      {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Credit Card' %}</span>
+                      {% if order.payment_method == 'credit_card' %}
+                      <input readonly type="radio" name="payment" value="credit_card" checked/>
+                      {% else %}
+                      <input readonly type="radio" name="payment" value="credit_card" />
+                      {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+
+                      <span class="radiotextsty">{% trans 'Checks' %}</span>
+                      {% if order.payment_method == 'checks' %}
+                      <input readonly type="radio" name="payment" value="checks" checked/>
+                      {% else %}
+                      <input readonly type="radio" name="payment" value="checks" />
+                      {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-3 p-0">
+                  <div class="form-check-inline">
+                    <label class="customradio">
+                      <span class="radiotextsty">{% trans 'Cash' %}</span>
+                      {% if order.payment_method == 'cash' %}
+                      <input readonly type="radio" name="payment" value="cash" checked/>
+                      {% else %}
+                      <input readonly type="radio" name="payment" value="cash" />
+                      {% endif %}
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--------------------------------------------------------------------->
+
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="sectitle mt-1">
+                <h2>{% trans 'The Conditions' %}</h2>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="Shoroot">
+                <p>{% trans '1- The client is required to visit the company`s premises within 3 days from the project launch date to sign the contract and receive it post-agreement, in accordance with the company`s regulations, and to pay the remaining amount.' %}</p>
+                <p>{% trans '2- This reservation will be forfeited if the due amounts are not paid within the period specified in the previous clause without the need for notice, warning, or court judgment. The reservation will be considered null and void, and the client will have the right to reclaim the reserved booking deposit.' %}</p>
+                <p>{% trans '3- The client is responsible for the accuracy of the information provided and documented by them.' %}</p>
+              </div>
+            </div>
+
+            <div class="col-lg-12 mt-5">
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>{% trans 'Operation Department' %}</label>
+                    <input readonly type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>{% trans 'Financial Departmnt' %}</label>
+                    <input readonly type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>{% trans 'Sales Department' %}</label>
+                    <input readonly type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="formgroup d-block text-center">
+                    <label>{% trans 'Client' %}</label>
+                    <input readonly type="text" readonly class="inputtext d-block" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+    {% endfor %}
+    
+
+
+
+  
+    {% comment %} <button type="button" id=CovertPDFAndDowenload class="SendOrderer DowenloadPDFF">{% trans 'Dowenlaod as PDF File' %}</button> {% endcomment %}
+
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.meanmenu.js' %}"></script>
+
+    <!-- <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script> -->
+
+    <script src="{% static 'assets/select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'assets/select2/form-advanced.init.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/odometer.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.appear.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/contact-form-script.js' %}"></script>
+
+    <script src="{% static 'assets/js/wows.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    
+    
+    <!-- <script src="{% static 'assets/js/SmoothScroll.min.js' %}"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            var element = document.querySelector('.fromTLD');
+                            element.style.width = '100%';
+                            var element2 = document.querySelector('.FormPage');
+                            element2.style.width = '100%';
+                            var MainTitle = document.querySelector('.MainTitle');
+                            MainTitle.style.marginTop = '10px';
+            
+                            var opt = {
+                                margin: [0.5, 0.5, 0.5, 0.5],
+                                filename: 'units_order.pdf',
+                                image: { type: 'jpeg', quality: 0.98 },
+                                html2canvas: {
+                                    scale: 2,
+                                    // width: element.scrollWidth,
+                                    // height: element.scrollHeight
+                                },
+                                jsPDF: {
+                                    unit: 'cm',
+                                    format: 'a4',
+                                    orientation: 'portrait',
+                                    fonts: ['Amiri']
+                                }
+                            };
+                            html2pdf().set(opt).from(element).save().then(function() {
+                              // redirect to /admin/home/orders
+                            window.location.replace("/admin/home/orders");
+                            });
+
+            
+
+        });
+    </script>
+
+
+  </body>
+</html>

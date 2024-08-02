@@ -5,7 +5,8 @@ from django.template.response import TemplateResponse
 from .models import orders as Orders, units as Units , Customers_num , Thraa_info , Units_num
 from django.utils.html import format_html
 from django.db.models import Count
-
+from django.http import HttpResponse
+from .utils import render_to_pdf
 
 class CustomAdminSite(admin.AdminSite):
     def get_urls(self):
@@ -32,6 +33,21 @@ admin_site = CustomAdminSite(name='custom_admin')
 
 @admin.register(Orders, site=admin_site)
 class OrdersAdmin(admin.ModelAdmin):
+    
+    actions = ["print_orders"]
+
+    def print_orders(self, request, queryset):
+        context = {
+            'order': queryset,
+        }
+        pdf = render_to_pdf(request,'order_pdf_template.html', context)
+        return pdf
+
+    print_orders.short_description = "Print selected orders"
+    
+    
+    
+    
     list_display = (
         'customer_num', 'name', 'date', 'phone', 'email', 
         'clientSource', 'broker_company', 'dev_sales', 'broker_sales', 'dev_sales_manager', 'units_details'

@@ -181,6 +181,7 @@ def order(request):
         ambassador_phone = request.POST.get('ambassador_phone', 'no results')
         ambassador_email = request.POST.get('ambassador_email', 'no results')
         amount = request.POST.get('amount', '')
+        payment= request.POST.get('payment', '')
 
         # Create the order
         new_order = orders.objects.create(
@@ -206,7 +207,8 @@ def order(request):
             ambassador_id=ambassador_id,
             ambassador_phone=ambassador_phone,
             ambassador_email=ambassador_email,
-            amount=amount
+            amount=amount,
+            payment_method=payment
         )
 
         # Parse units JSON string into Python list

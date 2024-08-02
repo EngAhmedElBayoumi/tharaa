@@ -37,7 +37,7 @@ class orders(models.Model):
     ambassador_email=models.CharField(max_length=100,null=True,blank=True)
     amount=models.CharField(max_length=100,null=True,blank=True)
     units=models.ManyToManyField(units)
-    
+    payment_method=models.CharField(max_length=100,null=True,blank=True,default="cash")
     
     def __str__(self):
         return f'customer_num: {self.customer_num}, name: {self.name}'
