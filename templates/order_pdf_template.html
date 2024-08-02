@@ -243,6 +243,7 @@
                     </label>
                   </div>
                 </div>
+                {% if order.clientSource == 'Personal' or order.clientSource == 'Indirect' %}
                 <div id="broker_section" >
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="formgroup">
@@ -262,6 +263,8 @@
                     </div>
                   </div>
                 </div>
+                {% endif %}
+                {% if order.clientSource == 'Ambassador'  %}
                 <div id="ambassador_section">
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="formgroup">
@@ -289,6 +292,7 @@
                   </div>
                   
                 </div>
+                {% endif %}
 
 
               <!------------------------------------->
@@ -319,7 +323,7 @@
 
 
 
-
+              {% if order.clientSource == 'Personal' or order.clientSource == 'Indirect' %}
                 <div id="broker_sales_section2"> 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="formgroup">
@@ -334,6 +338,7 @@
                   </div>
                 </div>
                 </div>
+              {% endif %}
                 
                 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
