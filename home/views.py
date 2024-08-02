@@ -217,11 +217,15 @@ def order(request):
 
         # Create units and associate them with the order
         for unit_data in units_data:
+            unit_number = unit_data.get('number_of_units')
+            #add EOI before the number
+            unit_number = 'EOI' + str(unit_number)
             new_unit = units.objects.create(
-                number_of_units=unit_data.get('number_of_units'),
+                number_of_units=unit_number,
                 unit_type=unit_data.get('type'),
                 floor=unit_data.get('Floor')
             )
+            print("new_unit", new_unit)
             new_order.units.add(new_unit)
 
         return HttpResponse("Order and units created successfully.")

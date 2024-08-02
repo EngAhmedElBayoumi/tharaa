@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from .utils import render_to_pdf
 
 class CustomAdminSite(admin.AdminSite):
+
     def get_urls(self):
         urls = super().get_urls()
         custom_urls = [
@@ -19,13 +20,21 @@ class CustomAdminSite(admin.AdminSite):
     def statistics_view(self, request):
         units_data = Units.objects.values('unit_type').annotate(count=Count('unit_type'))
         orders_data = Orders.objects.extra({'day': "strftime('%%Y-%%m-%%d', date)"}).values('day').annotate(count=Count('id')).order_by('day')
-
+        branch_data = Orders.objects.values('branch').annotate(count=Count('id'))
+        direct_indirect_data = Orders.objects.values('clientSource').annotate(count=Count('id'))
+        dev_sales_manager_data = Orders.objects.values('dev_sales_manager').annotate(count=Count('id'))
+        total_units=Units.objects.all().count()
         context = dict(
             self.each_context(request),
             units_data=list(units_data),
             orders_data=list(orders_data),
+            branch_data=list(branch_data),
+            direct_indirect_data=list(direct_indirect_data),
+            dev_sales_manager_data=list(dev_sales_manager_data),
+            total_units=total_units
         )
         return TemplateResponse(request, "admin/statistics.html", context)
+
 
 admin_site = CustomAdminSite(name='custom_admin')
 

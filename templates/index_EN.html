@@ -383,7 +383,7 @@
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="sectitle mb-2">
                           <h2>{% trans 'Type Of Unit' %} ({{unit_sympol}}<span id="number_of_units">{{unit_num}}</span>)</h2>
-                          <input type="text" name="number_of_units" id="number_of_units_input" class="inputtext" value="15255" style="display:none" />
+                          <input type="text" name="number_of_units" id="number_of_units_input" class="inputtext" vlaue="{{unit_num}}" style="display:none" />
                         </div>
                       </div>
                       <div class="col-lg-12 mb-3">
@@ -642,6 +642,10 @@
     
             <script>
                 $(document).ready(function() {
+                  // number_of_units_input = number_of_unit 
+                  var n_of_unit_input=$("#number_of_units_input")
+                  var n_of_units=$('#number_of_units')
+                  n_of_unit_input.val(n_of_units.text())
                   $(".addNewUnitess").click(function() {
                       var newItem = $(".UnitesItem").first().clone();
                       var newIndex = $(".UnitesItem").length;
@@ -650,7 +654,6 @@
                           var newName = name.split('_')[0] + '_' + newIndex;
                           $(this).attr('name', newName);
                       });
-              
                       var numberOfUnits = Number($("#number_of_units").text());
                       $("#number_of_units").text(numberOfUnits + 1);
                       $("#number_of_units_input").val(numberOfUnits + 1);
@@ -755,6 +758,7 @@
                           amount.value = 0
                           
                       }
+                      console.log("data ", formData);
 
                       $.ajax({
                           url: "{% url 'home:order' %}",
