@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
 <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+<link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
+
 <h1>Statistics</h1>
 <!--button export pdf in the right side-->
 <button id="pdfBtn" class="btn btn-primary">Export PDF</button>
@@ -220,11 +222,9 @@
 <script>
     $(document).ready(function() {
     $("#pdfBtn").on('click',function(){
-
         // get element
         var element = document.querySelector('#reportsection');
         element.style.width = '100%';
-
         console.log("export pdf")
         var opt = {
             margin: [0.5, 0.5, 0.5, 0.5],
@@ -245,9 +245,6 @@
         html2pdf().set(opt).from(element).save()
       
     });       
-
-
-
     });
 </script>
 
