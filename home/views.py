@@ -215,20 +215,32 @@ def order(request):
         units_json = request.POST.get('units', '[]')
         units_data = json.loads(units_json)
 
+        # Get the last unit number and determine the next number
+        last_unit = units.objects.order_by('-number_of_units').first()
+        if last_unit:
+            last_number = int(last_unit.number_of_units[3:])  # Extract the numeric part
+            next_number = last_number + 1
+        else:
+            next_number = 1003  # Starting number if no units exist
+
         # Create units and associate them with the order
+        created_units = []
         for unit_data in units_data:
-            unit_number = unit_data.get('number_of_units')
-            #add EOI before the number
-            unit_number = 'EOI' + str(unit_number)
+            # Format the new unit number
+            unit_number = f"EOI{next_number}"
+            next_number += 1
+
             new_unit = units.objects.create(
                 number_of_units=unit_number,
                 unit_type=unit_data.get('type'),
                 floor=unit_data.get('Floor')
             )
-            print("new_unit", new_unit)
             new_order.units.add(new_unit)
-
-        return HttpResponse("Order and units created successfully.")
+            created_units.append(unit_number)    
+        return JsonResponse({
+            'message': 'Order and units created successfully.',
+            'created_units': created_units
+        })
     else:
         return HttpResponse("This endpoint only accepts POST requests.", status=405)
     

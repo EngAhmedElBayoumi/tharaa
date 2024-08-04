@@ -100,12 +100,46 @@ class OrdersAdmin(ImportExportModelAdmin):
     search_fields = ('name', 'phone', 'email', 'clientSource', 'broker_company')
 
 
+def delete_unassigned_units(modeladmin, request, queryset):
+    # Get the IDs of units that are assigned to orders
+    assigned_unit_ids = Orders.objects.values_list('units', flat=True).distinct()
+    
+    # Filter out units that are not in assigned_unit_ids and delete them
+    unassigned_units = Units.objects.exclude(id__in=assigned_unit_ids)
+    count, _ = unassigned_units.delete()
+    
+    modeladmin.message_user(request, f'{count} unassigned units were deleted.')
+
+delete_unassigned_units.short_description = 'Delete units not assigned to any order'
+
+
+def rewrite_units_number(modeladmin, request, queryset):
+    start_number = 1003  # Starting number for EOI1003
+
+    # Order the queryset by the desired field, e.g., 'id' or another field you want to sort by
+    ordered_queryset = queryset.order_by('id')
+
+    for index, unit in enumerate(ordered_queryset, start=start_number):
+        # Create the new number format
+        new_number = f"EOI{index}"
+        unit.number_of_units = new_number
+        unit.save()
+
+    modeladmin.message_user(request, 'Units numbers rewritten successfully.')
+
+
+rewrite_units_number.short_description = 'Rewrite units number starting from EOI1003'
 
 
 @admin.register(Units, site=admin_site)
 class UnitsAdmin(admin.ModelAdmin):
     list_display = ('number_of_units', 'unit_type', 'floor')
     search_fields = ('unit_type', 'floor')
+    actions= [delete_unassigned_units,rewrite_units_number]
+    ordering = ['id']
+
+    
+
 
 @admin.register(Customers_num, site=admin_site)
 class Customers_numAdmin(admin.ModelAdmin):

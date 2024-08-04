@@ -57,12 +57,15 @@ class Units_num(models.Model):
     uints_num=models.CharField(max_length=50,default="1003")
     sympol=models.CharField(max_length=10,default="EOI")
     
+    
     def __str__(self):
         return f'{self.sympol}{self.uints_num}'
     
     class Meta:
         verbose_name = 'EOI Number'
         verbose_name_plural = 'EOI Number'
+        ordering = ['-id']
+        
 
 
     

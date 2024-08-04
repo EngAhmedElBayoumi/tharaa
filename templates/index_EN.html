@@ -682,8 +682,7 @@
               
                       $('#sendForm input').each(function() {
                           var type = $(this).attr('type');
-                          // check if id of the input is customer_num remove from value sympol and keep only number
-                         
+                          
 
                           var value = $(this).val();
                           var isReadonly = $(this).attr('readonly');
@@ -766,6 +765,31 @@
                           data: formData,
                           success: function(response) {
                             alert("Your order has been sent successfully");
+                            var createdUnits = response.created_units;
+                              // check if id of the input is customer_num remove from value sympol and keep only number
+                              $(".UnitesItem").each(function(index, element) {
+                                // Ensure we have a corresponding unit number from the response
+                                if (index < createdUnits.length) {
+                                    var newNumber = createdUnits[index];
+                                    $(element).find('#number_of_units').text(newNumber);
+                                    $(element).find('#number_of_units_input').val(newNumber);
+                                }
+                            });
+
+                            // get from response created_units
+
+                            var created_units = response.created_units;
+
+                            // loop on the units numbers and update unit_num with the value from created_units
+
+                            
+
+
+                        
+
+
+
+
             
                             var element = document.querySelector('.fromTLD');
                             element.style.width = '100%';
